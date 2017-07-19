@@ -102,3 +102,6 @@ ENV/
 
 # virtual environment
 venv
+
+# idea
+.idea
