@@ -1,0 +1,23 @@
+{% extends  "base.html" %}
+
+{% block title %}
+{{ post.title }}
+{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="row">
+	<div class="col-md-12">
+		<article class="article the-font">
+			<h2>{{ post.title }}</h2>
+             <p class="blog-post-meta">January 1, 2014</p>
+        </article>
+        {% if post.body_html %}
+            {{ post.body.html | safe}}
+        {% else %}
+            {{ post.body }}
+        {% endif %}
+    </div>
+</div>
+</div>
+{% endblock %}
