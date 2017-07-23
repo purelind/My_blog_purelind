@@ -5,7 +5,7 @@ from . import main
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    posts = Post.query.order_by(Post.timestamp.desc()).all()
+    posts = Post.query.order_by(Post.created.desc()).all()
     return render_template('index.html', posts=posts)
 
 
