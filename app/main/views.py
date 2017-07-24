@@ -18,3 +18,7 @@ def post(index):
 @main.route('/about', methods=['GET'])
 def about_site():
     return render_template('about.html')
+
+@main.route('/admin', methods=['GET, POST'])
+def admin():
+    return render_template('admin_login.html')
