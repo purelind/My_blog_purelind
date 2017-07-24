@@ -5,14 +5,17 @@ from app.models import Post, Category
 from flask_script import Manager, Shell
 from flask_migrate import Migrate, MigrateCommand
 
-app = create_app(os.getenv('FLASK_CONFIG') or 'default')
+app = create_app(os.getenv('BLOG_CONFIG') or 'default')
 manager = Manager(app)
 migrate = Migrate(app, db)
 
+
 def make_shell_context():
-    return dict(app=app, db=db, Post=Post)
+    """注册了程序,数据库实例,以及模型,使得这些对象可直接导入shell"""
+    return dict(app=app, db=db, Post=Post, Category=Category)
 manager.add_command("shell", Shell(make_context=make_shell_context))
-manager.add_command('db', MigrateCommand)
+manager.add_command('db', MigrateCommand) # Flask-Migrate提供一个MigrateCommand类, 用于导出数据库迁移命令
+
 
 @manager.command
 def test():
