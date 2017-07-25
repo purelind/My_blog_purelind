@@ -7,7 +7,8 @@ from flask_login import UserMixin, AnonymousUserMixin
 import bleach
 from .import login_manager
 
-class User(UserMixin, db.Model):
+
+class User(UserMixin, db.Model): #  UserMixin类: is_authenticated(), is_active(), is_annoymous(), get_id()
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
@@ -28,6 +29,10 @@ class User(UserMixin, db.Model):
         return check_password_hash(self.password_hash, password)
 
 
+@login_manager.user_loader
+def load_user(user_id):
+    """Flask-Login 要求程序实现一个回调函数,使用指定的标识符加载用户 ？？？"""
+    return User.query.get(int(user_id))
 
 class Post(db.Model):
     __tablename__ = "posts"

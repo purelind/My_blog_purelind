@@ -1,5 +1,5 @@
 from flask import render_template
-from ..models import Post
+from ..models import Post, User, db
 from . import main
 
 
@@ -19,6 +19,14 @@ def post(index):
 def about_site():
     return render_template('about.html')
 
-@main.route('/admin', methods=['GET, POST'])
-def admin():
-    return render_template('admin_login.html')
+
+from flask_admin.contrib.sqla import ModelView
+from .. import blog_admin
+class MyBlogModelView(ModelView):
+    can_delete = False
+    page_size = 10
+
+
+
+blog_admin.add_view(MyBlogModelView(Post, db.session))
+blog_admin.add_view(MyBlogModelView(User, db.session))
