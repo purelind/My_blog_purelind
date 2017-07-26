@@ -1,12 +1,12 @@
-{% extends "base.html" %}
+{% extends "base_admin.html" %}
 
 {% block title %}Purelind's blog{% endblock %}
 
-{% block body %}
+{% block page_content %}
 <ul class="container">
     {% for post in posts %}
     <a href="/post/{{ post.id }}"><h3 style="color:#334444;">{{ post.title }}</h3></a>
-    <p class="blog-post-meta">{{ post.created }}</p>
+    <p class="blog-post-meta">January 1, 2014</p>
     {% endfor %}
 </ul>
 {% endblock %}

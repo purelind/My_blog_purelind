@@ -1,0 +1,10 @@
+{% extends "base_admin.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Purelind's blog{% endblock %}
+
+{% block page_content %}
+<div class="container">
+    {{ wtf.quick_form(form) }}
+</div>
+{% endblock %}

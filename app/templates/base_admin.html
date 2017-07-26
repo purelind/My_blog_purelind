@@ -10,7 +10,7 @@
     <title>{% block title %}{% endblock %} | Purelind</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../static/bootstrap-3.3.7-dist/css/bootstrap.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
     <link href="../static/blog.css" rel="stylesheet">
@@ -31,35 +31,30 @@
                     <span class="icon-bar"></span>
                 </button>
                 <header>
-                    <div class="container">
-                        <h2><a href="/">Purelind</a></h2>
-                    </div>
-                </header>
-                <nav>
-        <div class="container col-md-8 col-md-offset-6">
+
+                    <div class="container ">
                         <ul>
-                            <a class="navbar-brand" href="/">Home</a>
-                            <a class="navbar-brand" href="#">Project</a>
-                            <a class="navbar-brand" href="/about">About site&me</a>
-                            <a class="navbar-brand" href="#">Archives</a>
-                            <a class="navbar-brand" href="#">Blogroll</a>
+                            <h2><a href="/">Admin</a></h2>
+                            <a class="navbar-brand" href="/admin">Home</a>
+                            <a class="navbar-brand" href="#">Post</a>
+                            <a class="navbar-brand" href="create">CreatePost</a>
                         </ul>
                     </div>
-                </nav>
+
             </div>
         </div>
     </nav>
 </div>
 {% endblock %}
-
 {% block body %}
 {% endblock %}
 
 
+{% block content %}
+
 {% block page_content %}
-
 {% endblock %}
-
+{% endblock %}
 <div class="blog-footer">
     <ul>
         <a href="http://purelind.com">@ 2017 Purelind </a> |
@@ -70,7 +65,25 @@
 
     </ul>
 
+
+    <a href="https://linode.com">Hosted on Linode</a>
+    <a href="purelind.com">
+        <img src="/static/footicon.ico"
+             alt="Purelind">
+    </a>
     <a href="http://flask.pocoo.org">Build on Flask</a>
+</div>
+<div class="blog-footer">
+    <ul>
+        <a href="http://purelind.com">@ 2017 Purelind </a> |
+        <a href="/">Home</a> |
+        <a href="/about">About</a> |
+        <a href="https://github.com/purelind">Github</a> |
+        <a href="https://github.com/purelind">Twitter</a>
+
+    </ul>
+
+    <a href="http://flask.pocoo.org">Build on Flask</a> |
     <a href="purelind.com">
         <img src="/static/footicon.ico"
              alt="Purelind">
@@ -78,8 +91,6 @@
     <a href="https://linode.com">Hosted on Linode</a>
 
 </div>
-
-
 </body>
 
 </html>

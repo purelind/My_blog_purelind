@@ -1,20 +1,28 @@
 from . import db
 from datetime import datetime
 from markdown import markdown
-import hashlib
 from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin, AnonymousUserMixin
+from flask_login import UserMixin
 import bleach
 from .import login_manager
 
 
-class User(UserMixin, db.Model): #  UserMixin类: is_authenticated(), is_active(), is_annoymous(), get_id()
+class Permission:
+    FOLLOW = 0x01
+    COMMENT = 0x02
+    WRITE_ARTICLES = 0x04
+    MODERATE_COMMENTS = 0x08
+    ADMINISTER = 0x80
+
+
+class User(UserMixin, db.Model):  # UserMixin类: is_authenticated(), is_active(), is_annoymous(), get_id()
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
     email = db.Column(db.String(64), unique=True, index=True)
     username = db.Column(db.String(64), unique=True, index=True)
     password_hash = db.Column(db.String(128))
     confirmed = db.Column(db.Boolean, default=False)
+    last_seen = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     avatar_hash = db.Column(db.String(32))
 
     @property
@@ -28,11 +36,16 @@ class User(UserMixin, db.Model): #  UserMixin类: is_authenticated(), is_active(
     def verify_password(self, password):
         return check_password_hash(self.password_hash, password)
 
+    def ping(self):  # 刷新用户的最后访问时间
+        self.last_seen = datetime.utcnow()
+        db.session.add(self)
+
 
 @login_manager.user_loader
 def load_user(user_id):
     """Flask-Login 要求程序实现一个回调函数,使用指定的标识符加载用户 ？？？"""
     return User.query.get(int(user_id))
+
 
 class Post(db.Model):
     __tablename__ = "posts"
@@ -48,6 +61,26 @@ class Post(db.Model):
 
     # db.ForeignKey()的参数'catefory.id'表明，这列的值是category表中行的id值
     category_id = db.Column(db.Integer, db.ForeignKey('categorys.id'))
+
+    @staticmethod
+    def generate_fake(count=100):
+        from sqlalchemy.exc import IntegrityError
+        from random import seed, randint
+        import forgery_py
+
+        seed()
+        for i in range(count):
+            post = Post(title=forgery_py.lorem_ipsum.sentence(),
+                        body=forgery_py.lorem_ipsum.sentences(randint(10,20)),
+                        body_html=forgery_py.lorem_ipsum.sentences(randint(10,30)),
+                        outline=forgery_py.lorem_ipsum.sentences(randint(5,10)),
+                        created=forgery_py.date.date(True),
+                        modified=forgery_py.date.date(True))
+            db.session.add(post)
+            try:
+                db.session.commit()
+            except IntegrityError:
+                db.session.rollback()
 
     @staticmethod
     def on_changed_body(target, value, oldvalue, initiator):

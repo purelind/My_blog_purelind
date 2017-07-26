@@ -1,0 +1,15 @@
+{% extends "admin/base.html" %}
+
+{% block title %}Purelind's blog{% endblock %}
+
+{% block body %}
+
+<ul class="container">
+    <h1>Admin home page.</h1>
+    <h1>Admin home page.</h1>
+    {% for post in posts %}
+    <a href="/post/{{ post.id }}"><h3 style="color:#334444;">{{ posts[0].title }}</h3></a>
+    <p class="blog-post-meta">January 1, 2014</p>
+    {% endfor %}
+</ul>
+{% endblock %}
