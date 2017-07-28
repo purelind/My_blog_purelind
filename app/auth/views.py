@@ -1,8 +1,8 @@
-from ..models import Post, User
+from ..models import User
 from . import auth
 from .forms import LoginForm
-from flask_login import login_user, logout_user, current_user, login_required
-from flask import render_template, redirect, request, url_for, flash
+from flask_login import login_user, logout_user, login_required
+from flask import render_template, redirect, url_for, flash
 
 
 @auth.route('/login', methods=['GET', 'POST'])

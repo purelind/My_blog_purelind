@@ -1,5 +1,5 @@
-from flask import render_template, current_app,render_template, redirect, request, url_for, flash
-from flask_login import login_user, logout_user, current_user, login_required
+from flask import current_app,render_template, redirect, request, url_for, flash
+from flask_login import login_required
 from . import main
 from .. import db
 from ..models import Post
@@ -26,6 +26,21 @@ def post(id):
 @main.route('/about', methods=['GET'])
 def about_site():
     return render_template('about.html')
+
+
+@main.route('/projects', methods=['GET'])
+def projects():
+    return render_template('projects.html')
+
+
+@main.route('/archives', methods=['GET'])
+def archives():
+    return render_template('archives.html')
+
+
+@main.route('/blogroll', methods=['GET'])
+def blogroll():
+    return render_template('blogroll.html')
 
 
 @main.route('/admin', methods=['GET', 'POST'])
