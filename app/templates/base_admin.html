@@ -37,7 +37,10 @@
                             <h2><a href="/">Admin</a></h2>
                             <a class="navbar-brand" href="/admin">Home</a>
                             <a class="navbar-brand" href="#">Post</a>
-                            <a class="navbar-brand" href="create">CreatePost</a>
+                            <a class="navbar-brand" href="/create">CreatePost</a>
+                        </ul>
+                        <ul>
+                           <a class="navbar-brand col-md-offset-2" href="/auth/logout">Logout</a>
                         </ul>
                     </div>
 
@@ -54,26 +57,10 @@
 
 {% block page_content %}
 {% endblock %}
+
 {% endblock %}
-<div class="blog-footer">
-    <ul>
-        <a href="http://purelind.com">@ 2017 Purelind </a> |
-        <a href="/">Home</a> |
-        <a href="/about">About</a> |
-        <a href="https://github.com/purelind">Github</a> |
-        <a href="https://github.com/purelind">Twitter</a> |
 
-    </ul>
-
-
-    <a href="https://linode.com">Hosted on Linode</a>
-    <a href="purelind.com">
-        <img src="/static/footicon.ico"
-             alt="Purelind">
-    </a>
-    <a href="http://flask.pocoo.org">Build on Flask</a>
-</div>
-<div class="blog-footer">
+<div class="blog-footer " id="id">
     <ul>
         <a href="http://purelind.com">@ 2017 Purelind </a> |
         <a href="/">Home</a> |

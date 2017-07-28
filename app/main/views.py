@@ -1,29 +1,25 @@
-from flask import render_template, render_template, redirect, request, url_for, flash
+from flask import render_template, current_app,render_template, redirect, request, url_for, flash
 from flask_login import login_user, logout_user, current_user, login_required
-
-from .forms import AdminLoginForm, EditPostForm
-from ..models import Post, User
-
 from . import main
-
 from .. import db
 from ..models import Post
 from .forms import EditPostForm, PostForm
-from flask_sqlalchemy import get_debug_queries
-
-
-
 
 
 @main.route('/', methods=['GET', 'POST'])
 def index():
-    posts = Post.query.order_by(Post.created.desc()).all()
-    return render_template('index.html', posts=posts)
+    page = request.args.get('page', 1, type=int)
+    query = Post.query
+    pagination = query.order_by(Post.created.desc()).paginate(
+        page, per_page=current_app.config['BLOG_POSTS_PER_PAGE'],
+        error_out=False)
+    posts = pagination.items
+    return render_template('index.html', posts=posts, pagination=pagination)
 
 
-@main.route('/post/<int:index>', methods=['GET'])
-def post(index):
-    post = Post.query.get_or_404(index)
+@main.route('/post/<int:id>', methods=['GET'])
+def post(id):
+    post = Post.query.get_or_404(id)
     return render_template('post.html', post=post)
 
 
@@ -33,22 +29,15 @@ def about_site():
 
 
 @main.route('/admin', methods=['GET', 'POST'])
+@login_required
 def admin():
-    posts = Post.query.order_by(Post.created.desc()).all()
-    return render_template('admin.html', posts=posts)
-
-
-
-
-
-
-
-
-# @main.route('/home', methods=['GET', 'POST'])
-# # @login_required
-# def home():
-#     posts = Post.query.order_by(Post.created.desc()).all()
-#     return render_template('home.html', posts=posts)
+    page = request.args.get('page', 1, type=int)
+    query = Post.query
+    pagination = query.order_by(Post.created.desc()).paginate(
+        page, per_page=current_app.config['BLOG_POSTS_PER_PAGE'],
+        error_out=False)
+    posts = pagination.items
+    return render_template('admin.html', posts=posts, pagination=pagination)
 
 
 @main.route('/admin/postlist', methods=['GET', 'POST'])
@@ -59,8 +48,9 @@ def postlist():
         post = Post()
     return render_template('postlist.html')
 
+
 @main.route('/edit/<int:id>', methods=['GET', 'POST'])
-# @login_required
+@login_required
 def edit(id):
     post = Post.query.get_or_404(id)
     # if current_user != 'admin':
@@ -84,13 +74,16 @@ def edit(id):
     form.modified.data = post.modified
     return render_template('edit_post.html', form=form, post=post)
 
+
 @main.route('/create', methods=['GET', 'POST'])
+@login_required
 def create():
     form = PostForm()
     post = Post()
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
+        post.body_html = form.body_html.data
         post.outline = form.outline.data
         post.created = form.created.data
         db.session.add(post)
