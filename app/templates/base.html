@@ -14,8 +14,9 @@
 
     <!-- Custom styles for this template -->
     <link href="../static/blog.css" rel="stylesheet">
+
 </head>
-<body>
+<body style="padding-bottom: 120px">
 {% block nav %}
 
 <div class="container">
@@ -58,15 +59,17 @@
 
 {% endblock %}
 
-<div class="blog-footer">
+
+<footer class=" blog-footer  navbar-fixed-bottom">
     <ul>
         <a href="http://purelind.com">@ 2017 Purelind </a> |
-        <a href="/">Home</a> |
-        <a href="/about">About</a> |
-        <a href="https://github.com/purelind">Github</a> |
-        <a href="https://github.com/purelind">Twitter</a> |
-
+    <a href="/">Home</a> |
+    <a href="/about">About</a> |
+    <a href="https://github.com/purelind">Github</a> |
+    <a href="https://github.com/purelind">Twitter</a> |
     </ul>
+
+
 
     <a href="http://flask.pocoo.org">Build on Flask</a>
     <a href="purelind.com">
@@ -75,8 +78,12 @@
     </a>
     <a href="https://linode.com">Hosted on Linode</a>
 
-</div>
+
+
+</footer>
+
 
 
 </body>
+
 </html>
