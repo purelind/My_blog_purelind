@@ -6,6 +6,10 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
     <title>{% block title %}{% endblock %} | Purelind</title>
 
@@ -15,88 +19,78 @@
     <!-- Custom styles for this template -->
     <link href="../static/blog.css" rel="stylesheet">
     <style>
+        body, h1 {
+            font-family: "Raleway", Arial, sans-serif
+        }
+
+        h1 {
+            letter-spacing: 6px
+        }
+
+        .w3-row-padding img {
+            margin-bottom: 12px
+        }
+
         .center {
             margin: auto;
-            width: 60%;
-            border: 0.5px solid lightgray;
+            width: 50%;
+            border: 3px solid lightgray;
             padding: 10px;
         }
     </style>
 
 </head>
-<body style="background-color: lightgray">
+
+<body>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-content" style="max-width:1500px">
+
+    <!-- Header -->
+    <header class="w3-panel w3-center w3-opacity" style="padding:10px 16px 10px 16px">
+        <a href="/">
+            <img src="../static/headicon.ico" alt="purelind" width="80" height="80">
+        </a>
+
+        <h1 class="w3-xlarge" style="padding-top: 40px">PURELIND</h1>
+        <p style="padding-bottom: 20px">睡去依依随雁断,惊回故故恼蛰鸣.</p>
+        <!--<h1>K.J</h1>-->
 
 
-{% block nav %}
-
-<div  style="width:60%; margin:auto; background-color: white">
-    <nav class="navbar navbar-inverse">
-        <div class="container ">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header" >
-                <!--<button type="button" class="navbar-toggle collapsed" data-toggle="collapse"-->
-                        <!--data-target="#bs-example-navbar-collapse-1" aria-expanded="false">-->
-                    <!--<span class="sr-only">Toggle navigation</span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                    <!--<span class="icon-bar"></span>-->
-                <!--</button>-->
-
-                    <div class="container" >
-                        <h2><a href="/">Purelind</a></h2>
-                    </div>
-
-                <nav>
-                    <div class="container">
-                        <ul>
-                            <a class="navbar-brand" href="/">Home</a>
-                            <a class="navbar-brand" href="/projects">Project</a>
-                            <a class="navbar-brand" href="/about">About site&me</a>
-                            <a class="navbar-brand" href="/archives">Archives</a>
-                            <a class="navbar-brand" href="/blogroll">Blogroll</a>
-                        </ul>
-                    </div>
-                </nav>
+        <div class="w3-padding-3">
+            <div class="w3-bar w3-border">
+                <a href="/" class="w3-bar-item w3-button">Home</a>
+                <a href="/projects" class="w3-bar-item w3-button">Projects</a>
+                <a href="/archives" class="w3-bar-item w3-button">Archives</a>
+                <a href="/about" class="w3-bar-item w3-button">About</a>
+                <a href="/blogroll" class="w3-bar-item w3-button w3-hide-small">Blogroll</a>
             </div>
         </div>
-    </nav>
+    </header>
+
+    <!-- Photo Grid -->
+    {% block post_content %}
+    {% endblock %}
+
+    {% block page_content %}
+
+
+    {% endblock %}
+    <!-- End Page Content -->
 </div>
-{% endblock %}
 
-{% block post_content %}
-{% endblock %}
-
-{% block page_content %}
-
-{% endblock %}
-
-{% block comment %}
-{% endblock %}
-
-<footer id="site-footer" style="padding-bottom: 20px;">
-    <p>
-        <a href="http://purelind.com">@ 2017 Purelind </a> |
-    <a href="/">Home</a> |
-    <a href="/about">About</a> |
-    <a href="https://github.com/purelind">Github</a> |
-    <a href="https://github.com/purelind">Twitter</a> |
-    </p>
-
-
-
-    <a href="http://flask.pocoo.org">Build on Flask</a>
-    <a href="purelind.com">
-        <img src="/static/footicon.ico"
-             alt="Purelind">
-    </a>
-    <a href="https://linode.com">Hosted on Linode</a>
-
-
-
-</footer>
+<!--&lt;!&ndash; Footer &ndash;&gt;-->
+<!--<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large navbar-fixed-bottom">-->
+<!--<i class="fa fa-facebook-official w3-hover-opacity"></i>-->
+<!--<i class="fa fa-instagram w3-hover-opacity"></i>-->
+<!--<i class="fa fa-snapchat w3-hover-opacity"></i>-->
+<!--<i class="fa fa-pinterest-p w3-hover-opacity"></i>-->
+<!--<i class="fa fa-twitter w3-hover-opacity"></i>-->
+<!--<i class="fa fa-linkedin w3-hover-opacity"></i>-->
+<!--<p>@ 2017 <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">Purelind</a></p>-->
+<!--</footer>-->
 
 </body>
-
 
 
 </html>

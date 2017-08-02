@@ -4,30 +4,33 @@
 {% block title %}Purelind's blog{% endblock %}
 
 {% block post_content %}
-<div  class="center" style="text-align: center; background-color: white">
-    <ul class="container" style="text-align: left">
-    {% for post in posts %}
-    <a href="/post/{{ post.id }} " style=""><h3 style="color:#334444;">{{ post.title }}</h3></a>
-    <p class="blog-post-meta" >{{ post.created }}</p>
-    {% endfor %}
-</ul>
-    {% if pagination %}
+<div class="center">
+    <ul>
+        {% for post in posts %}
+        <a href="/post/{{ post.id }} " style=""><h3 style="color:#334444;">{{ post.title }}</h3></a>
+        <p class="blog-post-meta">{{ post.created }}</p>
+        {% endfor %}
+    </ul>
+    <div style="    margin: auto;
+    width: 100%;
+    padding: 10px;">
+        {% if pagination %}
 
-    {{ macros.pagination_widget(pagination, '.index') }}
+        {{ macros.pagination_widget(pagination, '.index') }}
 
-    {% endif %}
-
+        {% endif %}
+    </div>
 
 
 </div>
 
 
 <!--<div class="container ">-->
-    <!--{% if pagination %}-->
-    <!--<div class="pagination">-->
-        <!--{{ macros.pagination_widget(pagination, '.index') }}-->
-    <!--</div>-->
-    <!--{% endif %}-->
+<!--{% if pagination %}-->
+<!--<div class="pagination">-->
+<!--{{ macros.pagination_widget(pagination, '.index') }}-->
+<!--</div>-->
+<!--{% endif %}-->
 <!--</div>-->
 
 
