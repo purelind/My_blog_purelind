@@ -160,9 +160,37 @@ h6, .h6 {
   text-align: center;
   background-color: #f9f9f9;
   border-top: .05rem solid #e5e5e5;
-  margin: auto;
-  width: 58%;
+
 }
 .blog-footer p:last-child {
   margin-bottom: 0;
 }
+
+footer#site-footer {
+    margin: auto;
+    width: 60%;
+    border: 0.5px solid #3c3c3c;
+    padding: 10px;
+    text-align: center;
+    background-color: #404040;
+    color: #A8AA94;;
+    font-family: 'lucida sans', sans-serif;
+    font-size: 90%;
+
+}
+
+footer p {
+  line-height: 1.7em;
+  padding: 0 0 10px 0;
+}
+
+footer a {
+  color: #A8AA94;
+  text-decoration: none;
+}
+
+footer a:hover {
+  color: #FFF;
+  text-decoration: none;
+}
+

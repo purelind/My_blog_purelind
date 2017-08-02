@@ -14,7 +14,7 @@ class Config:
     BLOG_MAIL_SUBJECT_PREFIX = '[Purelind Blog]'
     BLOG_MAIL_SENDER = 'Purelind Admin <admin@purelind.com>'
     BLOG_ADMIN = os.environ.get('BLOG_ADMIN')
-    BLOG_POSTS_PER_PAGE = 10
+    BLOG_POSTS_PER_PAGE = 8
 
     @staticmethod
     def init_app(app):

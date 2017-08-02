@@ -4,12 +4,13 @@
 {% block title %}Purelind's blog{% endblock %}
 
 {% block post_content %}
-<ul class="container">
+<div  class="center" style="text-align: center; background-color: white">
+    <ul class="container" style="text-align: left">
     {% for post in posts %}
-    <a href="/post/{{ post.id }}"><h3 style="color:#334444;">{{ post.title }}</h3></a>
-    <p class="blog-post-meta">{{ post.created }}</p>
+    <a href="/post/{{ post.id }} " style=""><h3 style="color:#334444;">{{ post.title }}</h3></a>
+    <p class="blog-post-meta" >{{ post.created }}</p>
     {% endfor %}
-
+</ul>
     {% if pagination %}
 
     {{ macros.pagination_widget(pagination, '.index') }}
@@ -17,7 +18,9 @@
     {% endif %}
 
 
-</ul>
+
+</div>
+
 
 <!--<div class="container ">-->
     <!--{% if pagination %}-->
