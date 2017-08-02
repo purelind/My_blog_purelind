@@ -4,7 +4,7 @@
 {% block title %}Purelind's blog{% endblock %}
 
 {% block post_content %}
-<div class="center">
+<div class="center w3-opacity" style="background-color: white">
     <ul>
         {% for post in posts %}
         <a href="/post/{{ post.id }} " style=""><h3 style="color:#334444;">{{ post.title }}</h3></a>
