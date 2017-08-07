@@ -1,96 +1,166 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE HTML>
+<html>
+
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}">
-    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
-
-    <title>{% block title %}{% endblock %} | Purelind</title>
-
-    <!-- Bootstrap core CSS -->
-    <link href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Custom styles for this template -->
-    <link href="../static/blog.css" rel="stylesheet">
-    <style>
-        body, h1 {
-            font-family: "Raleway", Arial, sans-serif
-        }
-
-        h1 {
-            letter-spacing: 6px
-        }
-
-        .w3-row-padding img {
-            margin-bottom: 12px
-        }
-
-        .center {
-            margin: auto;
-            max-width: inherit;
-            /*border: 3px solid lightgray;*/
-            padding: 10px 10px 10px 10px ;
-        }
-    </style>
-
+    {% block head %}
+    <title>Purelind's blog</title>
+    <meta name="description" content="分享所见,所闻,所读,所思,所想"/>
+    {% endblock %}
+    <meta name="keywords" content="website keywords, website keywords"/>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/article.css.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/blog.css"/>
+    <!-- modernizr enables HTML5 elements and feature detects -->
+    <script type="text/javascript" src="../static/CSS3_two/js/modernizr-1.5.min.js"></script>
+    {% block pagescss %}{% endblock %}
 </head>
 
-<body style="background-color: lightgray; ">
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-content" style="max-width:1000px; background-color: white" >
-
-    <!-- Header -->
-    <header class="w3-panel w3-center w3-opacity" style="padding:10px 16px 10px 16px;">
-        <a href="/">
-            <img src="../static/headicon.ico" alt="purelind" width="80" height="80">
-        </a>
-
-        <h1 class="w3-xlarge" style="padding-top: 40px">PURELIND</h1>
-        <p style="padding-bottom: 20px">睡去依依随雁断,惊回故故恼蛰鸣.</p>
-        <!--<h1>K.J</h1>-->
-
-
-        <div class="w3-padding-3">
-            <div class="w3-bar w3-border">
-                <a href="/" class="w3-bar-item w3-button">Home</a>
-                <a href="/projects" class="w3-bar-item w3-button">Projects</a>
-                <a href="/archives" class="w3-bar-item w3-button">Archives</a>
-                <a href="/about" class="w3-bar-item w3-button">About</a>
-                <a href="/blogroll" class="w3-bar-item w3-button w3-hide-small">Blogroll</a>
+<body>
+<div id="main" style="position: relative">
+    <header>
+        <div id="logo">
+            <div id="logo_text">
+                <!-- class="logo_colour", allows you to change the colour of the text -->
+                <h1><a href="index.html">Purelind's<span class="logo_colour">blog</span></a></h1>
+                <h2>Life is Short</h2>
             </div>
         </div>
+        <nav>
+            <div id="menu_container">
+                <ul class="sf-menu" id="nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="">Archives</a></li>
+                    <li><a href="">About</a></li>
+                    <li><a href="">Projects</a></li>
+                    <li><a href="">Resume</a></li>
+                </ul>
+            </div>
+        </nav>
     </header>
+    <div id="site_content">
 
-    <!-- Photo Grid -->
-    {% block post_content %}
-    {% endblock %}
+        <div class="content_container">
+            <div class="content">
+                {% block content %}
+                {% endblock %}
+            </div>
+        </div>
 
-    {% block page_content %}
+        <div id="sidebar_container">
+            <!--<img class="paperclip" src="../static/CSS3_two/images/paperclip.png" alt="paperclip" />-->
+            <div class="sidebar">
+                <div class="bio">
+                    <div class="illustration">
+                        <img src="../static/headicon.ico" alt="purelind">
+
+                    </div>
 
 
-    {% endblock %}
-    <!-- End Page Content -->
+                </div>
+                <h3 class="center">Hi, I am purelind</h3>
+                <p>EE --> CS, Educate in Harbin</p>
+                <p>Self-learning programing</p>
+                <p>Python/Java/JavaScript</p>
+                <!--<h4></h4>-->
+                <!--<h5>January 1st, 2012</h5>-->
+                <!--<p>2012 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>-->
+            </div>
+            <!--<img class="paperclip" src="../static/CSS3_two/images/paperclip.png" alt="paperclip" />-->
+            <div class="sidebar">
+                <h3>Social-Media Links</h3>
+                <div id="social-logos">
+                    <!--<a href="http://stackoverflow.com/users/2142577/laike9m"-->
+                    <!--title="laike9m on stackoverflow" target="_blank" style="float: left">-->
+                    <!--<img src="../static/social-png/github-pic.png"-->
+                    <!--alt="GitHub logo">-->
+                    <!--</a>-->
+                    <a href="mailto:purelind@gmail.com"
+                       target="_blank">
+                        <img src="../static/social-png/gmail.png"
+                             alt="Gmail logo">
+                    </a>
+                    <a href="https://github.com/purelind"
+                       title="purelind on gihub" target="_blank">
+                        <img src="../static/social-png/github.png"
+                             alt="GitHub logo">
+                    </a>
+                    <a href="https://twitter.com/purelind"
+                       title="purelind on twitter" target="_blank">
+                        <img src="../static/social-png/twitter.png"
+                             alt="Twitter logo">
+                    </a>
+
+                    <a href="#"
+                       title="purelind on linkedin" target="_blank">
+                        <img src="../static/social-png/linkedin.png"
+                             alt="LinkedIn logo">
+                    </a>
+                    <a href="#"
+                       title="purelind on telegram" target="_blank">
+                        <img src="../static/social-png/telegram.png"
+                             alt="Telegram logo">
+                    </a>
+
+
+                </div>
+            </div>
+            <!--<img class="paperclip" src="../static/CSS3_two/images/paperclip.png" alt="paperclip" />-->
+            <div class="sidebar">
+                <h3>More Useful Links</h3>
+                <ul>
+                    <li><a href="#">First Link</a></li>
+                    <li><a href="#">Another Link</a></li>
+                    <li><a href="#">And Another</a></li>
+                    <li><a href="#">Last One</a></li>
+                </ul>
+            </div>
+        </div>
+        <!--<div class="content">-->
+        <!--<img style="float: left; vertical-align: middle; margin: 0 10px 0 0;" src="../static/CSS3_two/images/home.png" alt="home" /><h1 style="margin: 15px 0 0 0;">Welcome to the CSS3_two template</h1>-->
+        <!--<p>This simple, fixed width website template is released under a <a href="http://creativecommons.org/licenses/by/3.0">Creative Commons Attribution 3.0 Licence</a>. This means you are free to download and use it for personal and commercial projects. However, you <strong>must leave the 'design from css3templates.co.uk' link in the footer of the template</strong>.</p>-->
+        <!--<p>This template is written entirely in <strong>HTML5</strong> and <strong>CSS3</strong>.</p>-->
+        <!--<p>You can view more free CSS3 web templates <a href="http://www.css3templates.co.uk">here</a>.</p>-->
+        <!--<p>This template is a fully documented 5 page website, with an <a href="../static/CSS3_two/examples.html">examples</a> page that gives examples of all the styles available with this design. There is also a working PHP contact form on the contact page.</p>-->
+        <!--<p></p>-->
+        <!--<img style="float: left; vertical-align: middle; margin: 0 10px 0 0;" src="../static/CSS3_two/images/browser.png" alt="browser" /><h1 style="margin: 15px 0 0 0;">Browser Compatibility</h1>-->
+        <!--<p>This template has been tested in the following browsers:</p>-->
+        <!--<ul>-->
+        <!--<li>Internet Explorer 8</li>-->
+        <!--<li>Internet Explorer 7</li>-->
+        <!--<li>FireFox 10</li>-->
+        <!--<li>Google Chrome 17</li>-->
+        <!--<li>Safari 4</li>-->
+        <!--</ul>-->
+        <!--</div>-->
+    </div>
+    <div id="scroll">
+        <a title="Scroll to the top" class="top" href="#"><img src="../static/CSS3_two/images/top.png" alt="top"/></a>
+    </div>
+    <footer id="site-footer" style="padding-bottom: 20px">
+        <p>
+            <a href="/">Home</a> |
+            <a href="#">Archives</a> |
+            <a href="#">About</a> |
+            <a href="#">Projects</a> |
+        </p>
+        <p>&copy; Purelind 2017 |
+            <a href="#">Hosted on Linode</a> |
+            <a href="http://www.css3templates.co.uk">design from css3templates.co.uk</a></p>
+    </footer>
 </div>
-
-<!--&lt;!&ndash; Footer &ndash;&gt;-->
-<!--<footer class="w3-container w3-padding-64 w3-light-grey w3-center w3-large navbar-fixed-bottom ">-->
-<!--<i class="fa fa-facebook-official w3-hover-opacity"></i>-->
-<!--<i class="fa fa-instagram w3-hover-opacity"></i>-->
-<!--<i class="fa fa-snapchat w3-hover-opacity"></i>-->
-<!--<i class="fa fa-pinterest-p w3-hover-opacity"></i>-->
-<!--<i class="fa fa-twitter w3-hover-opacity"></i>-->
-<!--<i class="fa fa-linkedin w3-hover-opacity"></i>-->
-<!--<p>@ 2017 <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="w3-hover-text-green">Purelind</a></p>-->
-<!--</footer>-->
-
+<!-- javascript at the bottom for fast page loading -->
+<script type="text/javascript" src="../static/CSS3_two/js/jquery.js"></script>
+<script type="text/javascript" src="../static/CSS3_two/js/jquery.easing-sooper.js"></script>
+<script type="text/javascript" src="../static/CSS3_two/js/jquery.sooperfish.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('ul.sf-menu').sooperfish();
+        $('.top').click(function () {
+            $('html, body').animate({scrollTop: 0}, 'fast');
+            return false;
+        });
+    });
+</script>
 </body>
-
-
 </html>

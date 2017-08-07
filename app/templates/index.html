@@ -1,38 +1,28 @@
 {% extends "base.html" %}
-{% import "_macros.html" as macros %}
 
-{% block title %}Purelind's blog{% endblock %}
+{% block content %}
 
-{% block post_content %}
-<div class="center w3-opacity" style="background-color: white">
-    <ul>
-        {% for post in posts %}
-        <a href="/post/{{ post.id }} " style=""><h3 style="color:#334444;">{{ post.title }}</h3></a>
-        <p class="blog-post-meta">{{ post.created }}</p>
-        {% endfor %}
-    </ul>
-    <div style="    margin: auto;
-    width: 100%;
-    padding: 10px;">
-        {% if pagination %}
-
-        {{ macros.pagination_widget(pagination, '.index') }}
-
+<div class="blog-index">
+ {% for post in posts %}
+<article>
+    <h1 class="title-link">
+        <a href="/post/{{ post.id }}/" target="_blank">{{ post.title }}</a>
+    </h1>
+    <p>
+        {{ post.created }}
+    </p>
+</article>
+{% endfor %}
+    <div class="pagination">
+        {% if pagination.has_prev %}
+            <a class="next" href="#">← Newer</a>
+        {% endif %}
+        <a href="#">Blog Archives</a>
+        {% if pagination.has_next %}
+            <a class="prev" href="#">Older →</a>
         {% endif %}
     </div>
-
-
 </div>
-
-
-<!--<div class="container ">-->
-<!--{% if pagination %}-->
-<!--<div class="pagination">-->
-<!--{{ macros.pagination_widget(pagination, '.index') }}-->
-<!--</div>-->
-<!--{% endif %}-->
-<!--</div>-->
-
 
 {% endblock %}
 
