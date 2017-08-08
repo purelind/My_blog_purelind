@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}">
+
+    <title>{% block title %}{% endblock %} | Purelind</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="../static/blog.css" rel="stylesheet">
+</head>
+<body>
+
+{% block post_content %}
+{% endblock %}
+
+{% block page_content %}
+
+{% import "bootstrap/wtf.html" as wtf %}
+
+<div class="container">
+    <div class="container page-header" style="text-align: center">
+        <h1>Create a new post</h1>
+    </div>
+    <div class="container col-md-4" style="width: 1150px;">
+        {{ wtf.quick_form(form) }}
+    </div>
+</div>
+
+{% endblock %}
+
+
+</body>
+
+</html>
+

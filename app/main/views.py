@@ -42,6 +42,10 @@ def archives():
 def blogroll():
     return render_template('blogroll.html')
 
+@main.route('/resume', methods=['GET'])
+def resume():
+    return render_template('resume.html')
+
 
 @main.route('/admin', methods=['GET', 'POST'])
 @login_required
@@ -83,7 +87,7 @@ def edit(id):
         return redirect(url_for('main.admin'))
     form.title.data = post.title
     form.body.data = post.body
-    form.body_html = post.body_html
+    form.body_html.data = post.body_html
     form.outline.data = post.outline
     form.created.data = post.created
     form.modified.data = post.modified
@@ -108,7 +112,6 @@ def create():
     except ImportError:
         db.session.rollback
     return render_template('create_post.html', form=form)
-
 
 
 
