@@ -284,12 +284,12 @@ nav {
 
 .content { 
   text-align: left;
-  width: 900px;
-  height: 800px;
+  width: 920px;
+  height: 100%;
   margin: 0 0 15px 0;
   float: left;
   font-size: 120%;
-  padding: 14px 0 0 0;
+  padding: 14px 0 0 15px;
   /*border: 1px solid lightblue;*/
 }
   
@@ -545,7 +545,7 @@ span.sf-arrow {
 }
 
 ul ul span.sf-arrow { 
-  right: 10;
+  right: 10px;
   top: 20px;
   background-position: 0 100%;
 }

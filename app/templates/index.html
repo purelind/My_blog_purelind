@@ -6,7 +6,7 @@
  {% for post in posts %}
 <article>
     <h1 class="title-link">
-        <a href="/post/{{ post.id }}/" target="_blank">{{ post.title }}</a>
+        <a href="/post/{{ post.id }}" target="_blank">{{ post.title }}</a>
     </h1>
     <p>
         {{ post.created }}
@@ -15,11 +15,11 @@
 {% endfor %}
     <div class="pagination">
         {% if pagination.has_prev %}
-            <a class="next" href="#">← Newer</a>
+            <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
         {% endif %}
-        <a href="#">Blog Archives</a>
+        <a href="/archives">Blog Archives</a>
         {% if pagination.has_next %}
-            <a class="prev" href="#">Older →</a>
+            <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
         {% endif %}
     </div>
 </div>

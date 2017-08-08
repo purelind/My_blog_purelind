@@ -9,11 +9,12 @@ article {
   /*-moz-border-radius: 7px 7px 7px 7px;*/
   /*-webkit-border: 7px 7px 7px 7px;*/
   /*padding: 0 15px 5px 13px;*/
-  width: 800px;
+  width: 860px;
+    height: 150px;
   border: 2px solid #EEEEEE;
   margin: 0 0 17px 0;
   border-radius: 7px 7px 7px 7px;
-  padding: 5px;
+  padding: 0 15px 5px 13px;
 }
 
 article h1, h2, h3, h4, h5, h6 {
@@ -78,4 +79,11 @@ div.pagination a.prev {
 div.pagination a.next {
     position: absolute;
     left: 0;
+}
+
+.adminpagination {
+  display: inline-block;
+  padding-left: 0;
+  margin: 20px 0;
+  border-radius: 4px;
 }

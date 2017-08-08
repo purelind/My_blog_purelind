@@ -1,23 +1,52 @@
-{% extends "base_admin.html" %}
+{% extends "base.html" %}
 {% import "_macros.html" as macros %}
 
-{% block title %}Purelind's blog{% endblock %}
+{% block title %}<title>Purelind's Admin</title>{% endblock %}
 
-{% block page_content %}
-<ul class="container">
-    {% for post in posts %}
+{% block navheader %}
+<header>
+    <div id="logo">
+        <div id="logo_text">
+            <!-- class="logo_colour", allows you to change the colour of the text -->
+            <h1><a href="index.html">Blog's<span class="logo_colour">Admin</span></a></h1>
+            <h2>admin panel</h2>
+        </div>
+    </div>
+    <nav>
+        <div id="menu_container">
+            <ul class="sf-menu" id="nav">
+                <li><a href="/admin">Home</a></li>
+                <li><a href="/create">Create</a></li>
+                <li><a href="/admin/postlist">PostList</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+{% endblock %}
+
+{% block content %}
+{% for post in posts %}
+<article>
+
+
     <a href="/post/{{ post.id }}"><h3 style="color:#334444;">{{ post.title }}</h3></a>
     <p class="blog-post-meta">{{ post.created }}</p>
 
     <a href="/edit/{{ post.id }}"><p href="/edit/{{ post.id }}">Edit</p></a>
+    </article>
     {% endfor %}
-</ul>
 
-<div class="container">
-    {% if pagination %}
-    <div class="pagination">
-        {{ macros.pagination_widget(pagination, '.admin') }}
-    </div>
+
+<div class="pagination">
+    {% if pagination.has_prev %}
+        <a class="next" href="{{ url_for('main.admin', page = pagination.page-1) }}">← Newer</a>
+    {% endif %}
+    <a href="/archives">Blog Archives</a>
+    {% if pagination.has_next %}
+        <a class="prev" href="{{ url_for('main.admin', page = pagination.page+1) }}">Older →</a>
     {% endif %}
 </div>
+{% endblock %}
+
+{% block sidebar %}
 {% endblock %}

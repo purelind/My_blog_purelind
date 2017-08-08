@@ -6,7 +6,10 @@
     <p>{{ post.created }}<p>
 
 
-        {% if post.body_html %}
+
+</div>
+<div>
+            {% if post.body_html %}
         {{ post.body_html | safe }}
         {% else %}
         {{ post.body }}
