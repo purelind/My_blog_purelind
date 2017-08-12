@@ -3,23 +3,29 @@
 {% block content %}
 
 <div class="blog-index">
- {% for post in posts %}
-<article>
-    <h1 class="title-link">
-        <a href="/post/{{ post.id }}" target="_blank">{{ post.title }}</a>
-    </h1>
-    <p>
-        {{ post.created }}
-    </p>
-</article>
-{% endfor %}
+    {% for post in posts %}
+    <article style="  width: 860px;
+    height: 150px;
+  border: 2px solid #EEEEEE;
+  margin: 0 0 17px 0;
+  border-radius: 7px 7px 7px 7px;
+  padding: 0 15px 5px 13px;">
+        <header>
+            <p>{{ post.created }}</p>
+            <a href="/post/{{ post.id }}" target="_blank" style="font-family: 'Crimson Text', serif;
+    font-weight: normal;">{{ post.title }}</a>
+        </header>
+
+
+    </article>
+    {% endfor %}
     <div class="pagination">
         {% if pagination.has_prev %}
-            <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
+        <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
         {% endif %}
         <a href="/archives">Blog Archives</a>
         {% if pagination.has_next %}
-            <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
+        <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
         {% endif %}
     </div>
 </div>
