@@ -16,7 +16,7 @@
 
 blog架构如图：
 
-![https://github.com/purelind/glowing-octo-potato/blob/master/app/static/image/blogskeleton.png]()
+![image](https://github.com/purelind/glowing-octo-potato/blob/master/app/static/image/blogskeleton.png)
 
 这种结构有6个顶级文件夹：
 
