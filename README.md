@@ -16,8 +16,6 @@
 
 blog架构如图：
 
-![http://oql549fm2.bkt.clouddn.com/glowing-octo-potato-readme001.png]()
-
 这种结构有6个顶级文件夹：
 
 - blog程序一般都保存在app下；
