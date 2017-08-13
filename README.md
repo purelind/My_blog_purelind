@@ -20,28 +20,28 @@ blog架构如图：
 
 这种结构有6个顶级文件夹：
 
-- blog程序一般都保存在app下；
-- dist 文件夹保存程序版本备份；
-- log文件夹保存错误信息；
-- migrations 文件夹包含数据迁移脚本；
-- tests文件夹保存单元测试；
-- venv文件夹则包含Python虚拟环境。
+- blog程序一般都保存在`app`下；
+- `dist` 文件夹保存程序版本备份；
+- `log`文件夹保存错误信息；
+- `migrations` 文件夹包含数据迁移脚本；
+- `tests`文件夹保存单元测试；
+- `venv`文件夹则包含Python虚拟环境。
 
 此外创建的新文件有：
 
-- requirements.text列出了所有的依赖；
-- config.py存储配置；
-- gunicorn.conf存储部署时候gunicorn的启动参数；
-- manage.py用于启动程序以及其他的程序任务；
-- LICENSE和README.md则是属于github的文件。
+- `requirements.text`列出了所有的依赖；
+- `config.py`存储配置；
+- `gunicorn.conf`存储部署时候gunicorn的启动参数；
+- `manage.py`用于启动程序以及其他的程序任务；
+- `LICENSE`和`README.md`则是属于github的文件。
 
 blog的程序主要在app文件夹中：
 
-- 不同的程序功能，使用不同的蓝本，与系统认证系统相关的路由在auth蓝本中定义；
-- main文件夹用于保存主要的蓝本，关于blueprint的话，详细了解见这里；
-- static用于存放静态文件，css、js、图片；
-- \_\_init\_\_.py构造文件
-- 数据库模型：models.py
+- 不同的程序功能，使用不同的蓝本，与系统认证系统相关的路由在`auth`蓝本中定义；
+- `main`文件夹用于保存主要的蓝本，关于blueprint的话，详细了解见这里；
+- `static`用于存放静态文件，css、js、图片；
+- `__init__.py`构造文件
+- 数据库模型：`models.py`
 
 
 
@@ -49,10 +49,10 @@ blog的程序主要在app文件夹中：
 
 后端配置参照《Flask Web开发》，简单挑几个点说：
 
-* 关于Flask-Bootstrap，刚开始直接使用flask-bootstrap集成的Twitter Bootstrap，后来想要尝试不同的前端页面风格，于是改用w3.css.但是没有完全抛弃bootstrap,自己在独立渲染admin的表单时，发现表单数据不能正常提交给数据库，而使用bootstrap/wtf.html文件定义的辅助函数则可以。于是直接取看wtf.html的源码，没能理清其辅助函数如何工作的。日后再尝试将表单渲染问题解决；
-* 数据库使用mariadb，开发环境是debian9，上面的默认数据库是mariadb;
+* 关于`Flask-Bootstrap`，刚开始直接使用`flask-bootstrap`集成的Twitter Bootstrap，后来想要尝试不同的前端页面风格，于是改用`w3.css`.但是没有完全抛弃bootstrap,自己在独立渲染`admin`的表单时，发现表单数据不能正常提交给数据库，而使用bootstrap/wtf.html文件定义的辅助函数则可以。于是直接取看wtf.html的源码，没能理清其辅助函数如何工作的。日后再尝试将表单渲染问题解决；
+* 数据库使用**mariadb**，开发环境是**debian9**，上面的默认数据库是mariadb;
 * blog的分类和标签功能现在没有实现
-* 关于admin管理，尝试过使用flask-admin，其功能和界面相比自己目前简陋的管理界面号太多，但是在将flask-admin适配自己的blog时，发现并不简单，在处理login认证的时候则让我放弃使用了。不过期间遇到了循环引用的问题，之前看书的时候理解不深。
+* 关于admin管理，尝试过使用`flask-admin`，其功能和界面相比自己目前简陋的管理界面号太多，但是在将flask-admin适配自己的blog时，发现并不简单，在处理login认证的时候则让我放弃使用了。不过期间遇到了循环引用的问题，之前看书的时候理解不深。
 
 
 
@@ -60,12 +60,12 @@ blog的程序主要在app文件夹中：
 
 ## 前端
 
-前端模块来之css3template，在遇见多才多艺laike9m的博客时，心中就有通过Flask建一个像她那样的blog的想法。看过其博客的github源码时，面对着html、css、js的时候则懵了。于是赶紧回去w3school补补网页前端的基础，没有入门知识，照抄也是会出问题的，而且你花在不断的google的时间会很多还不一定可以解决问题，而这些小问题当自己完整的过一遍基础教程则很容易避免。
+前端模块来之css3template，在遇见多才多艺laike9m的博客时，心中就有通过Flask建一个像她那样的blog的想法。看过其博客的github源码时，面对着html、css、js的时候则懵了。于是赶紧回去[w3school](https://www.w3schools.com/)补补网页前端的基础，没有入门知识，照抄也是会出问题的，而且你花在不断的google的时间会很多还不一定可以解决问题，而这些小问题当自己完整的过一遍基础教程则很容易避免。
 
 前端的几个问题简单记录一下：
 
 * 页面的底部状态栏浮动置底的问题一直没有解决好，可能通过js处理会相对容易，目前js水平太次，于是通过固定侧边栏高度来暂时处理；
-* 引入了disqus评论后，发现如果文章过短，评论就直接跑到页面中间，　日后想实现disqus评论手动点开才张开，这是在dtysky的博客发现的，觉得这是个不错的功能，可以进一步减少阅读时候的干扰；
+* 引入了**disqus**评论后，发现如果文章过短，评论就直接跑到页面中间，　日后想实现disqus评论手动点开才张开，这是在[dtysky](http://dtysky.moe/)的博客发现的，觉得这是个不错的功能，可以进一步减少阅读时候的干扰；
 * 对于移动端支持太差；
 
 
