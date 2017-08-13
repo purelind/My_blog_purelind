@@ -16,6 +16,8 @@
 
 blog架构如图：
 
+![https://github.com/purelind/glowing-octo-potato/blob/master/app/static/image/blogskeleton.png]()
+
 这种结构有6个顶级文件夹：
 
 - blog程序一般都保存在app下；
