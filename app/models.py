@@ -15,6 +15,7 @@ class Permission:
     ADMINISTER = 0x80
 
 
+#  class User 继承自 db.Model 时, SQLAlchemy 与 数据库的连接通过就已经自动的 Ready 了.
 class User(UserMixin, db.Model):  # UserMixin类: is_authenticated(), is_active(), is_annoymous(), get_id()
     __tablename__ = 'users'
     id = db.Column(db.Integer, primary_key=True)
@@ -40,11 +41,17 @@ class User(UserMixin, db.Model):  # UserMixin类: is_authenticated(), is_active(
         self.last_seen = datetime.utcnow()
         db.session.add(self)
 
+    def __repr__(self):
+        return "<Model User '{}'>".format(self.username)
 
 @login_manager.user_loader
 def load_user(user_id):
     """Flask-Login 要求程序实现一个回调函数,使用指定的标识符加载用户 ？？？"""
     return User.query.get(int(user_id))
+
+posts_tags = db.Table('posts_tags',
+                      db.Column('post_id', db.Integer, db.ForeignKey('posts.id')),
+                      db.Column('tag_id', db.Integer, db.ForeignKey('tags.id')))
 
 
 class Post(db.Model):
@@ -59,8 +66,18 @@ class Post(db.Model):
     created = db.Column(db.DateTime, index=True, default=datetime.utcnow)
     modified = db.Column(db.DateTime, index=True, default=datetime.utcnow)
 
-    # db.ForeignKey()的参数'catefory.id'表明，这列的值是category表中行的id值
+    """db.ForeignKey()的参数'catefory.id'表明，这列的值是category表中行的id值
+        文章对分类：一对多关系,将一个记录和一组记录联系在一起;
+        实现这种关系时,需要在‘多’一侧加入一个外键,指向‘一’一侧联接的记录"""
     category_id = db.Column(db.Integer, db.ForeignKey('categorys.id'))
+
+    tags = db.relationship('Tag',
+                           secondary=posts_tags,
+                           backref=db.backref('posts', lazy='dynamic'))
+
+    def __init__(self, title):
+        self.title = title
+
 
     @staticmethod
     def generate_fake(count=100):
@@ -91,17 +108,31 @@ class Post(db.Model):
             tags=allowed_tags, strip=True)
         )
 
+    def __repr__(self):
+        return "<Model Post '{}'>".format(self.title)
+
 db.event.listen(Post.body, 'set', Post.on_changed_body)
 
 
 class Category(db.Model):
     __tablename__ = "categorys"
     id = db.Column(db.Integer, primary_key=True)
-    tag = db.Column(db.String(64))
+    categoryname = db.Column(db.String(64))
     count = db.Column(db.Integer)
     posts = db.relationship("Post", backref="category")  # backref参数向Post模型中添加一个category属性,从而定义反向关系
 
+    def __repr__(self):
+        return "<Model Category '{}'>".format(self.categoryname)
 
-@login_manager.user_loader
-def load_user(user_id):
-    return User.query.get(int(user_id))
+
+class Tag(db.Model):
+    __tablename__ = 'tags'
+    id = db.Column(db.Integer, primary_key=True)
+    tagname = db.Column(db.String(255))
+
+    def __init__(self, tagname):
+        self.tagname = tagname
+
+
+    def __repr__(self):
+        return "<Model Tag '{}'>".format(self.tagname)

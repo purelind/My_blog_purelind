@@ -9,6 +9,8 @@ from .forms import EditPostForm, PostForm
 @main.route('/', methods=['GET', 'POST'])
 def index():
     page = request.args.get('page', 1, type=int)
+    '''其中 Post.query 返回的是 flask_sqlalchemy.BaseQuery object
+       flask_sqlalchemy.BaseQuery object 拥有对数据库操作的所有抽像方法'''
     query = Post.query
     pagination = query.order_by(Post.created.desc()).paginate(
         page, per_page=current_app.config['BLOG_POSTS_PER_PAGE'],
@@ -41,6 +43,7 @@ def archives():
 @main.route('/blogroll', methods=['GET'])
 def blogroll():
     return render_template('blogroll.html')
+
 
 @main.route('/resume', methods=['GET'])
 def resume():

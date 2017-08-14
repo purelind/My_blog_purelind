@@ -5,7 +5,7 @@ from flask_login import LoginManager
 from config import config
 
 bootstrap = Bootstrap()
-db = SQLAlchemy()
+db = SQLAlchemy()  # db 是 class SQLAlchemy 的实例化对象, 包含了 SQLAlchemy 对数据库操作的支持类集.
 
 # LoginManager对象session_protection属性可以设为None,'basic',
 # 'strong',提供不同的安全等级防止用户会话在遭到篡改
