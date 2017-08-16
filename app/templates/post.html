@@ -9,10 +9,10 @@
 
 <article>
     <header>
-        <p>
+        <p style="padding-left: 2px">
             {{ post.created }}
         </p>
-        <h1 class="title"><b>{{ post.title }}</b></h1>
+        <h1 class="title" style="padding-left: 2px"><b>{{ post.title }}</b></h1>
     </header>
     {% if post.body_html %}
     {{ post.body_html | safe }}

@@ -36,7 +36,7 @@ $.fn.sooperfish = function(op) {
     animationHide  : {height:'hide',opacity:'hide'},
     speedHide    : 200,
     easingHide      : sooperEasingHide,
-    autoArrows  : true, //Adds span elements to parent li elements, projecting arrow images on these items to indicate submenus. I added an alternative image file with white arrows.
+    autoArrows  : true, //Adds span elements to parent li elements, projecting arrow images on these items to indicate submenus. I added an alternative images file with white arrows.
     onShow    : function(){}, //callback after showing menu
     onHide    : function(){} //callback after hiding menu
   };

@@ -10,19 +10,13 @@
     <meta name="keywords" content="website keywords, website keywords"/>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     {% endblock %}
-    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
-    <!--<link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/style.css"/>-->
-    <!--<link rel="stylesheet" type="text/css" href="../static/article.css"/>-->
-    <!--<link rel="stylesheet" type="text/css" href="../static/gfm.css"/>-->
 
-    {% assets "main_css" %}
-    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
-    {% endassets %}
+    <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">
 
-    {% assets "main_js" %}
-    <script src="{{ ASSET_URL }}"></script>
-    {% endassets %}
-    <!-- modernizr enables HTML5 elements and feature detects -->
+    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/article.css"/>
+    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/gfm.css"/>
+
     <script type="text/javascript" src="../static/CSS3_two/js/modernizr-1.5.min.js"></script>
     {% block pagescss %}{% endblock %}
 </head>
@@ -74,7 +68,7 @@
             <div class="sidebar">
                 <div class="bio">
                     <div class="illustration">
-                        <img src="../static/headicon.ico" alt="purelind">
+                        <img src="../static/CSS3_two/images/headicon.ico" alt="purelind">
 
                     </div>
 
@@ -99,28 +93,28 @@
                     <!--</a>-->
                     <a href="mailto:purelind@gmail.com"
                        target="_blank">
-                        <img src="../static/social-png/gmail.png"
+                        <img src="../static/CSS3_two/images/gmail.png"
                              alt="Gmail logo">
                     </a>
                     <a href="https://github.com/purelind"
                        title="purelind on gihub" target="_blank">
-                        <img src="../static/social-png/github.png"
+                        <img src="../static/CSS3_two/images/github.png"
                              alt="GitHub logo">
                     </a>
                     <a href="https://twitter.com/purelind"
                        title="purelind on twitter" target="_blank">
-                        <img src="../static/social-png/twitter.png"
+                        <img src="../static/CSS3_two/images/twitter.png"
                              alt="Twitter logo">
                     </a>
 
                     <a href="#"
                        title="purelind on linkedin" target="_blank">
-                        <img src="../static/social-png/linkedin.png"
+                        <img src="../static/CSS3_two/images/linkedin.png"
                              alt="LinkedIn logo">
                     </a>
                     <a href="#"
                        title="purelind on telegram" target="_blank">
-                        <img src="../static/social-png/telegram.png"
+                        <img src="../static/CSS3_two/images/telegram.png"
                              alt="Telegram logo">
                     </a>
 
