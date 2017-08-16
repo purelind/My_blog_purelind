@@ -14,8 +14,9 @@
     <!--<link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/style.css"/>-->
     <!--<link rel="stylesheet" type="text/css" href="../static/article.css"/>-->
     <!--<link rel="stylesheet" type="text/css" href="../static/gfm.css"/>-->
+
     {% assets "main_css" %}
-    <link rel="stylesheet" type="text/css" href="{ ASSET_URL }">
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
     {% endassets %}
 
     {% assets "main_js" %}

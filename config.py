@@ -18,7 +18,7 @@ class Config:
     BLOG_ADMIN = os.environ.get('BLOG_ADMIN')
     BLOG_POSTS_PER_PAGE = 5
     CACHE_TYPE = 'simple'
-    ASSETS_DEBUG = True
+
 
     @staticmethod
     def init_app(app):
@@ -27,6 +27,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
+    ASSETS_DEBUG = True
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')
@@ -39,6 +40,7 @@ class TestingConfig(Config):
 
 
 class ProductionConfig(Config):
+    ASSETS_DEBUG = True
     SQLALCHEMY_DATABASE_URI = os.environ.get('DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data.sqlite')
 
