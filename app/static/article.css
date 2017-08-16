@@ -42,7 +42,7 @@ h1.title {
 
 .title-link a:hover {
     color: rgb(1, 129, 235);
-    text-decoration: underline;
+    text-decoration: none;
 }
 
 header {

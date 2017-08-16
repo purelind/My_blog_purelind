@@ -78,7 +78,6 @@ class Post(db.Model):
     def __init__(self, title):
         self.title = title
 
-
     @staticmethod
     def generate_fake(count=100):
         from sqlalchemy.exc import IntegrityError
@@ -132,7 +131,6 @@ class Tag(db.Model):
 
     def __init__(self, tagname):
         self.tagname = tagname
-
 
     def __repr__(self):
         return "<Model Tag '{}'>".format(self.tagname)

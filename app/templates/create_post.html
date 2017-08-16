@@ -7,7 +7,7 @@
     <meta name="author" content="">
     <link rel="icon" href="{{ url_for('static', filename='favicon.ico')}}">
 
-    <title>{% block title %}{% endblock %} | Purelind</title>
+    <title>Purelind | Create new post</title>
 
     <!-- Bootstrap core CSS -->
     <link href="../static/bootstrap-3.3.7-dist/css/bootstrap.min.css" rel="stylesheet">
@@ -30,6 +30,7 @@
     </div>
     <div class="container col-md-4" style="width: 1150px;">
         {{ wtf.quick_form(form) }}
+
     </div>
 </div>
 

@@ -3,9 +3,8 @@
 
 {% block head %}
 <head>
-    {% block title %}
-    <title>Purelind's blog</title>
-    {% endblock %}
+
+    <title>{% block title %}Purelind's blog{% endblock %}</title>
     {% block metas %}
     <meta name="description" content="分享所见,所闻,所读,所思,所想"/>
 
@@ -15,7 +14,9 @@
     <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/style.css"/>
         <link rel="stylesheet" type="text/css" href="../static/article.css"/>
     <!--<link rel="stylesheet" type="text/css" href="../static/blog.css"/>-->
+        <!--<link rel="stylesheet" type="text/css" href="../static/gfm.css"/>-->
     <link rel="stylesheet" type="text/css" href="../static/gfm.css"/>
+
     <!-- modernizr enables HTML5 elements and feature detects -->
     <script type="text/javascript" src="../static/CSS3_two/js/modernizr-1.5.min.js"></script>
     {% block pagescss %}{% endblock %}

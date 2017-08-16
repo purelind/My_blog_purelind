@@ -1,8 +1,8 @@
 {% extends "base.html" %}
 
 {% block content %}
-
 <div class="blog-index">
+
     {% for post in posts %}
     <article style="  width: 860px;
     height: 150px;
@@ -11,14 +11,14 @@
   border-radius: 7px 7px 7px 7px;
   padding: 0 15px 5px 13px;">
         <header>
-            <p>{{ post.created }}</p>
-            <a href="/post/{{ post.id }}" target="_blank" style="font-family: 'Crimson Text', serif;
-    font-weight: normal;">{{ post.title }}</a>
+            <p class="" style="padding-left: 2px"> {{ post.created }}</p>
+            <h1 class="title-link" style="padding-left: 2px;">
+               <a href="/post/{{ post.id }}" class="">{{ post.title }}</a>
+            </h1>
         </header>
-
-
     </article>
     {% endfor %}
+
     <div class="pagination">
         {% if pagination.has_prev %}
         <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
@@ -28,8 +28,8 @@
         <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
         {% endif %}
     </div>
-</div>
 
+</div>
 {% endblock %}
 
 

@@ -1,10 +1,9 @@
 {% extends  "base.html" %}
 
 {% block title %}
-<title>
-    {{ post.title }}
-</title>
+    {{ post.title }} | purelind's blog
 {% endblock %}
+
 
 {% block postcontent %}
 
@@ -20,6 +19,7 @@
     {% else %}
     {{ post.body }}
     {% endif %}
+
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */

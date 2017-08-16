@@ -101,7 +101,7 @@ def edit(id):
 @login_required
 def create():
     form = PostForm()
-    post = Post()
+    post = Post('title is here')
     if form.validate_on_submit():
         post.title = form.title.data
         post.body = form.body.data
