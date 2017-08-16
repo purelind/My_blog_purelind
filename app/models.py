@@ -44,6 +44,7 @@ class User(UserMixin, db.Model):  # UserMixin类: is_authenticated(), is_active(
     def __repr__(self):
         return "<Model User '{}'>".format(self.username)
 
+
 @login_manager.user_loader
 def load_user(user_id):
     """Flask-Login 要求程序实现一个回调函数,使用指定的标识符加载用户 ？？？"""
