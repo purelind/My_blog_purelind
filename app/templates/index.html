@@ -4,16 +4,11 @@
 <div class="blog-index">
 
     {% for post in posts %}
-    <article style="  width: 860px;
-    height: 150px;
-  border: 2px solid #EEEEEE;
-  margin: 0 0 17px 0;
-  border-radius: 7px 7px 7px 7px;
-  padding: 0 15px 5px 13px;">
+    <article >
         <header>
-            <p class="" style="padding-left: 2px"> {{ post.created }}</p>
-            <h1 class="title-link" style="padding-left: 2px;">
-               <a href="/post/{{ post.id }}" class="">{{ post.title }}</a>
+            <p style="padding-left: 2px"> {{ post.created }}</p>
+            <h1 class="title-link" style="padding-left: 2px;" >
+               <a href="/post/{{ post.id }}">{{ post.title }}</a>
             </h1>
         </header>
     </article>
