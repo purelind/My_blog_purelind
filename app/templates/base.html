@@ -13,9 +13,14 @@
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">
 
-    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/article.css"/>
-    <link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/gfm.css"/>
+    <!--<link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/style.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/article.css"/>-->
+    <!--<link rel="stylesheet" type="text/css" href="../static/CSS3_two/css/gfm.css"/>-->
+
+    {% assets "main_css" %}
+    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
+    {% endassets %}
+
 
     <script type="text/javascript" src="../static/CSS3_two/js/modernizr-1.5.min.js"></script>
     {% block pagescss %}{% endblock %}

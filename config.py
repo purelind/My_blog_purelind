@@ -17,7 +17,6 @@ class Config:
     BLOG_MAIL_SENDER = 'Purelind Admin <admin@purelind.com>'
     BLOG_ADMIN = os.environ.get('BLOG_ADMIN')
     BLOG_POSTS_PER_PAGE = 5
-    CACHE_TYPE = 'simple'
 
 
     @staticmethod
@@ -27,7 +26,7 @@ class Config:
 
 class DevelopmentConfig(Config):
     DEBUG = True
-    # ASSETS_DEBUG = True
+    ASSETS_DEBUG = True
 
     SQLALCHEMY_DATABASE_URI = os.environ.get('DEV_DATABASE_URL') or \
         'sqlite:///' + os.path.join(basedir, 'data-dev.sqlite')

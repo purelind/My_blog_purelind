@@ -1,13 +1,12 @@
 from flask import current_app,render_template, redirect, request, url_for, flash
 from flask_login import login_required
 from . import main
-from .. import db, cache
+from .. import db
 from ..models import Post
 from .forms import EditPostForm, PostForm
 
 
 @main.route('/', methods=['GET', 'POST'])
-@cache.cached(timeout=50)
 def index():
     page = request.args.get('page', 1, type=int)
     '''其中 Post.query 返回的是 flask_sqlalchemy.BaseQuery object
@@ -27,31 +26,26 @@ def post(id):
 
 
 @main.route('/about', methods=['GET'])
-@cache.cached(timeout=50)
 def about_site():
     return render_template('about.html')
 
 
 @main.route('/projects', methods=['GET'])
-@cache.cached(timeout=50)
 def projects():
     return render_template('projects.html')
 
 
 @main.route('/archives', methods=['GET'])
-@cache.cached(timeout=50)
 def archives():
     return render_template('archives.html')
 
 
 @main.route('/blogroll', methods=['GET'])
-@cache.cached(timeout=50)
 def blogroll():
     return render_template('blogroll.html')
 
 
 @main.route('/resume', methods=['GET'])
-@cache.cached(timeout=50)
 def resume():
     return render_template('resume.html')
 

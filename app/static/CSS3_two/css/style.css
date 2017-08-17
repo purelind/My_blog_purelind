@@ -329,10 +329,18 @@ nav {
   margin: 2px 0 22px 0px;
 }
 
-.content ul li, .sidebar ul li { 
+.content ul li{
+  list-style-type: circle;
+  margin: 0 0 0 0;
+  padding: 0 0 4px 28px;
+  line-height: 1.5em;
+}
+
+
+.sidebar ul li {
   list-style-type: none;
   background: url(../images/bullet.png) no-repeat;
-  margin: 0 0 0 0; 
+  margin: 0 0 0 0;
   padding: 0 0 4px 28px;
   line-height: 1.5em;
 }

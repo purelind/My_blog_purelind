@@ -3,29 +3,28 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from config import config
-from flask_cache import Cache
-# from flask_assets import Environment, Bundle
+from flask_assets import Environment, Bundle
 
 
 bootstrap = Bootstrap()
 db = SQLAlchemy()  # db 是 class SQLAlchemy 的实例化对象, 包含了 SQLAlchemy 对数据库操作的支持类集.
-cache = Cache()
-# assets_env = Environment()
-# main_css = Bundle(
-#     'CSS3_two/css/style.css',
-#     'article.css',
-#     'gfm.css',
-#     filters='cssmin',
-#     output='assets/css/common.css'
-# )
-# main_js = Bundle(
-#     'CSS3_two/js/jquery.js',
-#     'CSS3_two/js/modernizr-1.5.min.js',
-#     'CSS3_two/js/jquery.easing-sooper.js',
-#     'CSS3_two/js/jquery.sooperfish.js',
-#     filters='jsmin',
-#     output='assets/js/common.js'
-# )
+
+assets_env = Environment()
+main_css = Bundle(
+    'CSS3_two/css/style.css',
+    'CSS3_two/css/article.css',
+    'CSS3_two/css/gfm.css',
+    filters='cssmin',
+    output='assets/css/common.css'
+)
+main_js = Bundle(
+    'CSS3_two/js/jquery.js',
+    'CSS3_two/js/modernizr-1.5.min.js',
+    'CSS3_two/js/jquery.easing-sooper.js',
+    'CSS3_two/js/jquery.sooperfish.js',
+    filters='jsmin',
+    output='assets/js/common.js'
+)
 
 
 # LoginManager对象session_protection属性可以设为None,'basic',
@@ -43,11 +42,10 @@ def create_app(config_name):
     bootstrap.init_app(app)
     db.init_app(app)
     login_manager.init_app(app)  # 初始化Flask-Login
-    cache.init_app(app)
 
-    # assets_env.init_app(app)
-    # assets_env.register('main_js', main_js)
-    # assets_env.register('main_css', main_css)
+    assets_env.init_app(app)
+    assets_env.register('main_js', main_js)
+    assets_env.register('main_css', main_css)
 
     from .main import main as main_blueprint
     app.register_blueprint(main_blueprint)
