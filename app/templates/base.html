@@ -196,11 +196,14 @@
 </div>
 
 {% block scripts %}
-<!-- javascript at the bottom for fast page loading -->
-<script type="text/javascript" src="../static/CSS3_two/js/modernizr-1.5.min.js"></script>
-<script type="text/javascript" src="../static/CSS3_two/js/jquery.js"></script>
-<script type="text/javascript" src="../static/CSS3_two/js/jquery.easing-sooper.js"></script>
-<script type="text/javascript" src="../static/CSS3_two/js/jquery.sooperfish.js"></script>
+ javascript at the bottom for fast page loading
+{% assets "main_js" %}
+<script src="{{ ASSET_URL }}"></script>
+{% endassets %}
+<!--<script type="text/javascript" src="../static/CSS3_two/js/modernizr-1.5.min.js"></script>-->
+<!--<script type="text/javascript" src="../static/CSS3_two/js/jquery.js"></script>-->
+<!--<script type="text/javascript" src="../static/CSS3_two/js/jquery.easing-sooper.js"></script>-->
+<!--<script type="text/javascript" src="../static/CSS3_two/js/jquery.sooperfish.js"></script>-->
 <script type="text/javascript">
     $(document).ready(function () {
         $('ul.sf-menu').sooperfish();
