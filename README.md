@@ -60,7 +60,7 @@ blog的程序主要在app文件夹中：
 
 ## 前端
 
-前端模块来之css3template，在遇见多才多艺laike9m的博客时，心中就有通过Flask建一个像她那样的blog的想法。看过其博客的github源码时，面对着html、css、js的时候则懵了。于是赶紧回去[w3school](https://www.w3schools.com/)补补网页前端的基础，没有入门知识，照抄也是会出问题的，而且你花在不断的google的时间会很多还不一定可以解决问题，而这些小问题当自己完整的过一遍基础教程则很容易避免。
+前端模块来之css3template，在看到laike9m的博客时，喜欢那样的布局，而且其博客代码开源，于是想着利用flask搭建这样博客。看过其博客的github源码时，面对着html、css、js的时候则懵了。于是赶紧回去[w3school](https://www.w3schools.com/)补补网页前端的基础，没有入门知识，照抄也是会出问题的，而且你花在不断的google的时间会很多还不一定可以解决问题，而这些小问题当自己完整的过一遍基础教程则很容易避免。
 
 前端的几个问题简单记录一下：
 
@@ -72,7 +72,7 @@ blog的程序主要在app文件夹中：
 
 ## 部署
 
-关于部署，首先是主机的选择了: 自己使用的是Linode最低配的vps，系统用的是debian。之前为了上youtube将几家vultur,digitocean,banwagong还有linode全都尝试了一遍，目前主要就是使用Linode。如果熟悉基础linux操作，使用vps是个更好的选择，可以自己动手折腾，部署过程中的许多坑可以自己体验。
+关于部署，首先是主机的选择了: 自己使用的是Linode最低配的vps，系统用的是debian。之前为了上youtube将vultur,digitocean,banwagong还有linode全都尝试了一遍，目前主要使用Linode。如果熟悉基础linux操作，vps是个更好的选择，自己动手折腾乐趣多多，部署过程中的许多坑可以自己体验。
 
 其他选择就是《Flask Web开发》书中提及的PaaS，Heroku就是其中之一，可以提供一定的免费服务。
 
