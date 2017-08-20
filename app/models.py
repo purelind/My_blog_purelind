@@ -27,7 +27,7 @@ class User(UserMixin, db.Model):  # UserMixin类: is_authenticated(), is_active(
     avatar_hash = db.Column(db.String(32))
 
     @property
-    def password(self):
+    def password(self):  # 试图读取password属性的值,返回错误,因为生成散列值后无法还原密码
         raise AttributeError('password is not a readable attribute')
 
     @password.setter
