@@ -1,6 +1,6 @@
 # My blog with Flask
 
-简单记录一下自己Flask blog搭建过程。
+简单记录一下自己Flask blog搭建过程，博客源码见[这里](https://github.com/purelind/glowing-octo-potato)。
 
 自己的blog之路： Lofter  -->  WordPress --> google blog  --> github.io  --> flask blog。
 
