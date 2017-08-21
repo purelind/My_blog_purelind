@@ -56,7 +56,7 @@ class ProductionConfig(Config):
                 secure = ()
         mail_handler = SMTPHandler(
             mailhost=(cls.MAIL_SERVER, cls.MAIL_PORT),
-            formaddr=cls.BLOG_MAIL_SENDER,
+            fromaddr=cls.BLOG_MAIL_SENDER,
             toaddrs=[cls.BLOG_ADMIN],
             subject=cls.BLOG_MAIL_SUBJECT_PREFIX + ' Application Error',
             credentials=credentials,
