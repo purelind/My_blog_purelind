@@ -1,8 +1,8 @@
 # -*- coding: utf-8 -*-
+import os
+
 from flask import render_template, redirect, url_for, flash
 from flask_login import login_user, logout_user, login_required
-
-from config import Config
 
 from . import auth
 from .forms import LoginForm
@@ -18,8 +18,8 @@ def login():
         user = User.query.filter_by(email=form.email.data).first()
         if user is not None and user.verify_password(form.password.data):
             login_user(user, form.remember_me.data)
-            if Config.BLOG_ADMIN:
-                send_email(Config.BLOG_ADMIN, 'Admin Login Alert', 'mail/admin_login_alert', user=user)
+            if os.getenv('BLOG_CONFIG') == 'production':
+                send_email(os.getenv('BLOG_ADMIN'), 'Admin Login Alert', 'mail/admin_login_alert', user=user)
             return redirect('admin')
         flash('Invalid.')
     return render_template('auth/login.html', form=form)
