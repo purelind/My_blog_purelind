@@ -1,9 +1,12 @@
-from . import db
+# -*- coding: utf-8 -*-
 from datetime import datetime
-from markdown import markdown
-from werkzeug.security import generate_password_hash, check_password_hash
-from flask_login import UserMixin
+
 import bleach
+from markdown import markdown
+from flask_login import UserMixin
+from werkzeug.security import generate_password_hash, check_password_hash
+
+from . import db
 from .import login_manager
 
 

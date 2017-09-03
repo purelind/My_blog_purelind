@@ -1,11 +1,12 @@
+# -*- coding: utf-8 -*-
 from flask import Flask
 from flask_bootstrap import Bootstrap
 from flask_mail import Mail
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
-from config import config
 from flask_assets import Environment, Bundle
 
+from config import config
 
 bootstrap = Bootstrap()
 mail = Mail()

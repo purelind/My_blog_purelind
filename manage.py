@@ -1,5 +1,7 @@
-#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+# !/usr/bin/env python3
 import os
+
 from app import create_app, db, assets_env
 from app.models import User, Post, Category, Tag
 from flask_script import Manager, Shell
@@ -17,6 +19,7 @@ def make_shell_context():
 manager.add_command("shell", Shell(make_context=make_shell_context))
 manager.add_command('db', MigrateCommand)  # Flask-Migrate提供一个MigrateCommand类, 用于导出数据库迁移命令
 manager.add_command('assets', ManageAssets(assets_env))
+
 
 @manager.command
 def test():

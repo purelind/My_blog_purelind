@@ -1,10 +1,14 @@
-from ..models import User
+# -*- coding: utf-8 -*-
+from flask import render_template, redirect, url_for, flash
+from flask_login import login_user, logout_user, login_required
+
+from config import Config
+
 from . import auth
 from .forms import LoginForm
-from flask_login import login_user, logout_user, login_required
-from flask import render_template, redirect, url_for, flash
-from config import Config
+
 from ..email import send_email
+from ..models import User
 
 
 @auth.route('/login', methods=['GET', 'POST'])

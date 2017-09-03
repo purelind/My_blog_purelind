@@ -1,9 +1,12 @@
-from flask import current_app,render_template, redirect, request, url_for, flash
+# -*- coding: utf-8 -*-
+from flask import current_app, render_template, redirect, request, url_for, flash
 from flask_login import login_required
+
 from . import main
+from .forms import EditPostForm, PostForm
+
 from .. import db
 from ..models import Post
-from .forms import EditPostForm, PostForm
 
 
 @main.route('/', methods=['GET', 'POST'])
