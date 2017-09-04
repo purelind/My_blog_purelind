@@ -10,7 +10,7 @@
 <article>
     <header>
         <p style="padding-left: 2px">
-            {{ post.created }}
+            {{ momentjs(post.created).format("LL") }}
         </p>
         <h1 class="title" style="padding-left: 2px"><b>{{ post.title }}</b></h1>
     </header>

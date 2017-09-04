@@ -8,9 +8,12 @@ from flask_assets import Environment, Bundle
 
 from config import config
 
+from .momentjs import momentjs
+
 bootstrap = Bootstrap()
 mail = Mail()
 db = SQLAlchemy()  # db 是 class SQLAlchemy 的实例化对象, 包含了 SQLAlchemy 对数据库操作的支持类集.
+
 
 assets_env = Environment()
 main_css = Bundle(
@@ -40,6 +43,7 @@ login_manager.login_view = 'auth.login'   # login_view属性设置登录页面�
 def create_app(config_name):
     app = Flask(__name__)
     app.config.from_object(config[config_name])
+    app.jinja_env.globals['momentjs'] = momentjs
     config[config_name].init_app(app)
 
     bootstrap.init_app(app)

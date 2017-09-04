@@ -6,10 +6,10 @@
     {% for post in posts %}
     <article >
         <header>
-            <p style="padding-left: 2px"> {{ post.created }}</p>
-            <h1 class="title-link" style="padding-left: 2px;" >
+            <p> {{ momentjs(post.created).format("LL") }}</p>
+            <h2 class="title-link" style="padding-left: 0px;" >
                <a href="/post/{{ post.id }}">{{ post.title }}</a>
-            </h1>
+            </h2>
         </header>
     </article>
     {% endfor %}

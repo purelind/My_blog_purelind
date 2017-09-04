@@ -18,9 +18,8 @@
                 <li><a href="/admin">Home</a></li>
                 <li><a href="/create">Create</a></li>
                 <!--<li><a href="/admin/postlist">PostList</a></li>-->
-                 <li><a href="/auth/logout">Logout</a></li>
+                <li><a href="/auth/logout">Logout</a></li>
             </ul>
-
 
 
         </div>
@@ -31,23 +30,20 @@
 {% block content %}
 {% for post in posts %}
 <article>
-
-
-    <a href="/post/{{ post.id }}"><h3 style="color:#334444;">{{ post.title }}</h3></a>
-    <p class="blog-post-meta">{{ post.created }}</p>
-
+    <a class="title-link" href="/post/{{ post.id }}"><h3>{{ post.title }}</h3></a>
+    <p class="blog-post-meta">{{ momentjs(post.created).format("LL") }}</p>
     <a href="/edit/{{ post.id }}"><p href="/edit/{{ post.id }}">Edit</p></a>
-    </article>
-    {% endfor %}
+</article>
+{% endfor %}
 
 
 <div class="pagination">
     {% if pagination.has_prev %}
-        <a class="next" href="{{ url_for('main.admin', page = pagination.page-1) }}">← Newer</a>
+    <a class="next" href="{{ url_for('main.admin', page = pagination.page-1) }}">← Newer</a>
     {% endif %}
     <a href="/archives">Blog Archives</a>
     {% if pagination.has_next %}
-        <a class="prev" href="{{ url_for('main.admin', page = pagination.page+1) }}">Older →</a>
+    <a class="prev" href="{{ url_for('main.admin', page = pagination.page+1) }}">Older →</a>
     {% endif %}
 </div>
 {% endblock %}

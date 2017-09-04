@@ -72,15 +72,12 @@ class Post(db.Model):
 
     """db.ForeignKey()的参数'catefory.id'表明，这列的值是category表中行的id值
         文章对分类：一对多关系,将一个记录和一组记录联系在一起;
-        实现这种关系时,需要在‘多’一侧加入一个外键,指向‘一’一侧联接的记录"""
+        实现这种关系时,需要在‘多’一侧加入一个外键,指向‘一’一侧noew联接的记录"""
     category_id = db.Column(db.Integer, db.ForeignKey('categorys.id'))
 
     tags = db.relationship('Tag',
                            secondary=posts_tags,
                            backref=db.backref('posts', lazy='dynamic'))
-
-    def __init__(self, title):
-        self.title = title
 
     @staticmethod
     def generate_fake(count=100):
@@ -91,9 +88,9 @@ class Post(db.Model):
         seed()
         for i in range(count):
             post = Post(title=forgery_py.lorem_ipsum.sentence(),
-                        body=forgery_py.lorem_ipsum.sentences(randint(10,20)),
-                        body_html=forgery_py.lorem_ipsum.sentences(randint(10,30)),
-                        outline=forgery_py.lorem_ipsum.sentences(randint(5,10)),
+                        body=forgery_py.lorem_ipsum.sentences(randint(10, 20)),
+                        body_html=forgery_py.lorem_ipsum.sentences(randint(10, 30)),
+                        outline=forgery_py.lorem_ipsum.sentences(randint(5, 10)),
                         created=forgery_py.date.date(True),
                         modified=forgery_py.date.date(True))
             db.session.add(post)
@@ -111,8 +108,6 @@ class Post(db.Model):
             tags=allowed_tags, strip=True)
         )
 
-    def __repr__(self):
-        return "<Model Post '{}'>".format(self.title)
 
 db.event.listen(Post.body, 'set', Post.on_changed_body)
 
