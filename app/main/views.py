@@ -40,7 +40,8 @@ def projects():
 
 @main.route('/archives', methods=['GET'])
 def archives():
-    return render_template('archives.html')
+    posts = Post.query.order_by(Post.created.desc()).all()
+    return render_template('archives.html', posts=posts)
 
 
 @main.route('/blogroll', methods=['GET'])
