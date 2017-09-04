@@ -61,7 +61,7 @@ posts_tags = db.Table('posts_tags',
 class Post(db.Model):
     __tablename__ = "posts"
     id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(64))
+    title = db.Column(db.String(128))
     body = db.Column(db.Text)
     body_md = db.Column(db.Text)
     body_html = db.Column(db.Text)
