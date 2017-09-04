@@ -12,7 +12,7 @@
         <p style="padding-left: 2px">
             {{ momentjs(post.created).format("LL") }}
         </p>
-        <h1 class="title" style="padding-left: 2px"><b>{{ post.title }}</b></h1>
+        <h2 class="title" style="padding-left: 2px"><b>{{ post.title }}</b></h2>
     </header>
     {% if post.body_html %}
     {{ post.body_html | safe }}
