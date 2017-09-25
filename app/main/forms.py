@@ -23,7 +23,7 @@ class EditPostForm(FlaskForm):
 
 
 class PostForm(FlaskForm):
-    title = StringField('Title', validators=[Length(1, 64)])
+    title = StringField('Title', validators=[Length(1, 128)])
     body = PageDownField("What's on your mind?")
     body_html = TextAreaField("Html")
     outline = StringField('Outline', validators=[Length(0, 64)])
