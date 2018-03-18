@@ -32,11 +32,13 @@ a:hover, a:active {
 .nav__left {
     float: left;
     padding-top: 25px;
+    word-spacing: 13px
 }
 
 .nav__right {
     float: right;
     padding-top: 25px;
+    word-spacing: 13px
 }
 
 .intro {
@@ -75,3 +77,18 @@ footer#site-footer {
   /*margin: 0 0 0 0;*/
 }
 
+.link-email {
+ word-spacing: 10px;
+}
+
+.link-github {
+
+}
+
+.link-twitter {
+
+}
+
+.link-instagram {
+
+}
