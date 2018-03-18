@@ -12,11 +12,7 @@
     {% endblock %}
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">
-
-
-    {% assets "main_css" %}
-    <link rel="stylesheet" type="text/css" href="{{ ASSET_URL }}">
-    {% endassets %}
+    <link rel="stylesheet" href="{{ 'static/CSS3_two/css/style.css' }}">
     <script src="../static/CSS3_two/js/moment.min.js"></script>
 
     {% block pagescss %}{% endblock %}
@@ -43,174 +39,55 @@
 
 {% block body %}
 <body>
-<div id="main" style="position: relative">
+
     {% block navheader %}
-    <header>
-        <div id="logo">
-            <div id="logo_text">
-                <!-- class="logo_colour", allows you to change the colour of the text -->
-                <h1><a href="/">Purelind's<span class="logo_colour">blog</span></a></h1>
-                <h2>Life is Short</h2>
-            </div>
+    <nav class="nav">
+        <div class="nav__left" id="nav">
+            <a href="/" >Home</a>
+            <a href="/about/">About</a>
         </div>
-        <nav>
-            <div id="menu_container">
-                <ul class="sf-menu" id="nav">
-                    <li><a href="/">Home</a></li>
-                    <li><a href="/archives">Archives</a></li>
-                    <li><a href="/about">About</a></li>
-                    <li><a href="projects">Projects</a></li>
-                </ul>
-            </div>
-        </nav>
+
+        <div class="nav__right" id="nav">
+            <a target="_blank" href="#" class="link-github">Github</a>
+            <a target="_blank" href="#" class="link-twitter">Twitter</a>
+            <a target="_blank" href="#" class="link-facebook">Facebook</a>
+            <a href="#" class="link-email">Email</a>
+        </div>
+    </nav>
+
+    <header class="intro mar-tb-7">
+        <h1 class="intro__head">
+            Purelind's Blog
+                    <div class="intro__sub">
+                        <p >Don’t go through life, grow through life</p>
+                    </div>
+        </h1>
     </header>
     {% endblock %}
 
     {% block sitecontent %}
-    <div id="site_content">
-
-        <div class="content_container">
-            <div class="content">
-                {% block content %}
-                {% endblock %}
-                {% block postcontent %}
-                {% endblock %}
-                {% block formcontent %}
-                {% endblock %}
-            </div>
-        </div>
-
-        {% block sidebar %}
-        <div id="sidebar_container">
-            <!--<img class="paperclip" src="../static/CSS3_two/images/paperclip.png" alt="paperclip" />-->
-            <div class="sidebar">
-                <div class="bio">
-                    <div class="illustration">
-                        <img src="../static/CSS3_two/images/headicon.ico" alt="purelind">
-
-                    </div>
-
-
-                </div>
-                <h3 class="center">Hi, I am purelind.</h3>
-                <p>Welcome to my blog.</p>
-                <p>Code in Python,Go,Node.js.</p>
-                <p>Thank you for your visiting!</p>
-                <!--<h4></h4>-->
-                <!--<h5>January 1st, 2012</h5>-->
-                <!--<p>2012 sees the redesign of our website. Take a look around and let us know what you think.<br /><a href="#">Read more</a></p>-->
-            </div>
-            <!--<img class="paperclip" src="../static/CSS3_two/images/paperclip.png" alt="paperclip" />-->
-            <div class="sidebar">
-                <h3>Social-Media Links</h3>
-                <div id="social-logos">
-                    <!--<a href="http://stackoverflow.com/users/2142577/laike9m"-->
-                    <!--title="laike9m on stackoverflow" target="_blank" style="float: left">-->
-                    <!--<img src="../static/social-png/github-pic.png"-->
-                    <!--alt="GitHub logo">-->
-                    <!--</a>-->
-                    <a href="mailto:purelind@gmail.com"
-                       target="_blank">
-                        <img src="../static/CSS3_two/images/gmail.png"
-                             alt="Gmail logo">
-                    </a>
-                    <a href="https://github.com/purelind"
-                       title="purelind on gihub" target="_blank">
-                        <img src="../static/CSS3_two/images/github.png"
-                             alt="GitHub logo">
-                    </a>
-                    <a href="https://twitter.com/purelind"
-                       title="purelind on twitter" target="_blank">
-                        <img src="../static/CSS3_two/images/twitter.png"
-                             alt="Twitter logo">
-                    </a>
-
-                    <a href="#"
-                       title="purelind on linkedin" target="_blank">
-                        <img src="../static/CSS3_two/images/linkedin.png"
-                             alt="LinkedIn logo">
-                    </a>
-                    <a href="#"
-                       title="purelind on telegram" target="_blank">
-                        <img src="../static/CSS3_two/images/telegram.png"
-                             alt="Telegram logo">
-                    </a>
-
-
-                </div>
-            </div>
-            <!--<img class="paperclip" src="../static/CSS3_two/images/paperclip.png" alt="paperclip" />-->
-            <div class="sidebar">
-                <h3>More Useful Links</h3>
-                <ul>
-                    <li><a href="https://laike9m.com/">laike9m</a></li>
-                    <li><a href="https://v.meloduet.com/">void</a></li>
-                    <li><a href="http://dtysky.moe">dtysky</a></li>
-                    <li><a href="http://blog.farmostwood.net/about">木遥的窗子</a></li>
-                </ul>
-            </div>
-        </div>
-        {% endblock %}
-
-        <!--<div class="content">-->
-        <!--<img style="float: left; vertical-align: middle; margin: 0 10px 0 0;" src="../static/CSS3_two/images/home.png" alt="home" /><h1 style="margin: 15px 0 0 0;">Welcome to the CSS3_two template</h1>-->
-        <!--<p>This simple, fixed width website template is released under a <a href="http://creativecommons.org/licenses/by/3.0">Creative Commons Attribution 3.0 Licence</a>. This means you are free to download and use it for personal and commercial projects. However, you <strong>must leave the 'design from css3templates.co.uk' link in the footer of the template</strong>.</p>-->
-        <!--<p>This template is written entirely in <strong>HTML5</strong> and <strong>CSS3</strong>.</p>-->
-        <!--<p>You can view more free CSS3 web templates <a href="http://www.css3templates.co.uk">here</a>.</p>-->
-        <!--<p>This template is a fully documented 5 page website, with an <a href="../static/CSS3_two/examples.html">examples</a> page that gives examples of all the styles available with this design. There is also a working PHP contact form on the contact page.</p>-->
-        <!--<p></p>-->
-        <!--<img style="float: left; vertical-align: middle; margin: 0 10px 0 0;" src="../static/CSS3_two/images/browser.png" alt="browser" /><h1 style="margin: 15px 0 0 0;">Browser Compatibility</h1>-->
-        <!--<p>This template has been tested in the following browsers:</p>-->
-        <!--<ul>-->
-        <!--<li>Internet Explorer 8</li>-->
-        <!--<li>Internet Explorer 7</li>-->
-        <!--<li>FireFox 10</li>-->
-        <!--<li>Google Chrome 17</li>-->
-        <!--<li>Safari 4</li>-->
-        <!--</ul>-->
-        <!--</div>-->
-    </div>
+        {% block content %}
+            {% endblock %}
+        {% block postcontent%}
+            {% endblock %}
+        {% block formcontent %}
+            {% endblock %}
     {% endblock %}
 
+  <footer id="site-footer" style="padding-bottom: 20px">
+    <p>
+      <a href="/">Home</a> |
+      <a href="/blog/archive">Archives</a> |
+      <a href="/blog/about">About</a> |
+      <a href="">Projects</a> |
+    </p>
+    <p>
+      <a href="#">&copy;2018 Purelind</a>
+    </p>
+  </footer>
 
-    <div id="scroll">
-        <a title="Scroll to the top" class="top" href="#"><img src="../static/CSS3_two/images/top.png" alt="top"/></a>
-    </div>
 
-    {% block footer %}
-    <footer id="site-footer" style="padding-bottom: 20px">
-        <p>
-            <a href="/">Home</a> |
-            <a href="/archives">Archives</a> |
-            <a href="/about">About</a> |
-            <a href="/projects">Projects</a> |
-        </p>
-        <p><a href="/">&copy; Purelind 2017</a> |
-            <a href="https://www.linode.com/?r=6bcb84f178267f3ae1df6b11b5890e7ddb3c4073">Hosted on Linode</a> |
-            <a href="http://www.css3templates.co.uk">Design from css3templates.co.uk</a></p>
-    </footer>
-    {% endblock %}
-</div>
 
-{% block scripts %}
- <!--javascript at the bottom for fast page loading-->
-{% assets "main_js" %}
-<script src="{{ ASSET_URL }}"></script>
-{% endassets %}
-<!--<script type="text/javascript" src="../static/CSS3_two/js/modernizr-1.5.min.js"></script>-->
-<!--<script type="text/javascript" src="../static/CSS3_two/js/jquery.js"></script>-->
-<!--<script type="text/javascript" src="../static/CSS3_two/js/jquery.easing-sooper.js"></script>-->
-<!--<script type="text/javascript" src="../static/CSS3_two/js/jquery.sooperfish.js"></script>-->
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('ul.sf-menu').sooperfish();
-        $('.top').click(function () {
-            $('html, body').animate({scrollTop: 0}, 'fast');
-            return false;
-        });
-    });
-</script>
-{% endblock %}
 </body>
 {% endblock %}
 </html>

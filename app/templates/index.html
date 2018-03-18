@@ -1,30 +1,32 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div class="blog-index">
-
     {% for post in posts %}
-    <article >
-        <header>
-            <p> {{ momentjs(post.created).format("LL") }}</p>
-            <h2 class="title-link" style="padding-left: 0px;" >
-               <a href="/post/{{ post.id }}">{{ post.title }}</a>
-            </h2>
-        </header>
-    </article>
+        <hr style="    border: 0;
+    height: 1px;
+    width: 60%;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
+
+        <div style="margin: auto; width: 60%; border: 3px solid white; padding: 2px">
+
+            <p>
+                <a href="/post/{{ post.id }}">
+                    {{ post.title }}
+                </a>
+                <span
+                    style="float: right; position: relative; font-weight: lighter;">{{ momentjs(post.created).format("LL") }}
+                </span>
+            </p>
+
+        </div>
+
     {% endfor %}
-
-    <div class="pagination">
-        {% if pagination.has_prev %}
-        <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
-        {% endif %}
-        <a href="/archives">Blog Archives</a>
-        {% if pagination.has_next %}
-        <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
-        {% endif %}
-    </div>
-
-</div>
+    <hr style="    border: 0;
+    height: 1px;
+    width: 60%;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
 {% endblock %}
 
 
