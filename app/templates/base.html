@@ -11,8 +11,8 @@
     <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
     {% endblock %}
 
-    <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">
-    <link rel="stylesheet" href="{{ 'static/CSS3_two/css/style.css' }}">
+{#    <link rel="shortcut icon" href="{{ url_for('static', filename='CSS3_two/images/favicon.ico') }}">#}
+    <link rel="stylesheet" href="{{ url_for('static', filename='CSS3_two/css/style.css') }}">
     <script src="../static/CSS3_two/js/moment.min.js"></script>
 
     {% block pagescss %}{% endblock %}
@@ -44,18 +44,21 @@
     <nav class="nav">
         <div class="nav__left" id="nav">
             <a href="/" >Home</a>
-            <a href="/about/">About</a>
+            <a href="/about">About</a>
+            <a href="/archives">Archives</a>
+
         </div>
 
         <div class="nav__right" id="nav" style="">
-            <a target="_blank" href="#" class="link-github">Github</a>
-            <a target="_blank" href="#" class="link-twitter">Twitter</a>
-            <a target="_blank" href="#" class="link-instagram">Instagram</a>
-            <a href="#" class="link-email">Email</a>
+            <a target="_blank" href="https://github.com/purelind" class="link-github">Github</a>
+            <a target="_blank" href="https://twitter.com/purelind" class="link-twitter">Twitter</a>
+            <a target="_blank" href="https://www.instagram.com/purelind/" class="link-instagram">Instagram</a>
+            <a href="mailto:purelind@gmail.com" class="link-email">Email</a>
         </div>
     </nav>
 
-    <header class="intro mar-tb-7">
+        {% block intro_header %}
+    <header class="intro mar-tb-7 ">
         <h1 class="intro__head">
             Purelind's Blog
                     <div class="intro__sub">
@@ -63,12 +66,13 @@
                     </div>
         </h1>
     </header>
+            {% endblock %}
     {% endblock %}
 
     {% block sitecontent %}
         {% block content %}
             {% endblock %}
-        {% block postcontent%}
+        {% block postcontent %}
             {% endblock %}
         {% block formcontent %}
             {% endblock %}

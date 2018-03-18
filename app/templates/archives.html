@@ -1,22 +1,36 @@
 {% extends "base.html" %}
 
 {% block title %}
-Archives
+    Archives
 {% endblock %}
 
 {% block content %}
-<h2>2017</h2>
-<article>
-    {% for post in posts %}
-    <div class="container">
-        <li>
-            <a style="color: coral" href="/post/{{ post.id }}">{{ post.title }}</a> ,
-            {{momentjs(post.created).format("LL") }}
+    <article>
+        {% for post in posts %}
+                    <hr style="    border: 0;
+    height: 1px;
+{#    width: 60%;#}
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
 
-        </li>
-    </div>
+            <div style="margin: auto; border: 3px solid white; padding: 2px">
 
-    {% endfor %}
-</article>
+                <p>
+                    <a href="/post/{{ post.id }}">
+                        {{ post.title }}
+                    </a>
+                    <span
+                            style="float: right; position: relative; font-weight: lighter;">{{ momentjs(post.created).format("LL") }}
+                </span>
+                </p>
+            </div>
+
+        {% endfor %}
+            <hr style="    border: 0;
+    height: 1px;
+{#    width: 60%;#}
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
+    </article>
 
 {% endblock %}

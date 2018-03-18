@@ -22,7 +22,25 @@
         </div>
 
     {% endfor %}
-    <hr style="    border: 0;
+
+
+        <hr style="    border: 0;
+    height: 1px;
+    width: 60%;
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
+
+          <div class="pagination">
+    {% if pagination.has_prev %}
+      <a class="next" href="{{ url_for('main.index', page = pagination.page-1) }}">← Newer</a>
+    {% endif %}
+
+    {% if pagination.has_next %}
+      <a class="prev" href="{{ url_for('main.index', page = pagination.page+1) }}">Older →</a>
+    {% endif %}
+  </div>
+
+            <hr style="    border: 0;
     height: 1px;
     width: 60%;
     background: #333;

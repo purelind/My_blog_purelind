@@ -1,12 +1,20 @@
 {% extends  "base.html" %}
 
 {% block title %}
-    {{ post.title }} | purelind's blog
+   Purelind's blog
 {% endblock %}
 
 
-{% block postcontent %}
+{% block intro_header %}
+{% endblock %}
 
+{% block postcontent %}
+        <hr style="    border: 0;
+    height: 1px;
+    width: 60%;
+    padding-top: 50px;
+    background: #333;
+    background-image: linear-gradient(to right, #ffffff, #ffffff, #ffffff);">
 <article>
     <header>
         <p style="padding-left: 2px">
@@ -19,6 +27,7 @@
     {% else %}
     {{ post.body }}
     {% endif %}
+
 
 <div id="disqus_thread"></div>
 <script type="text/javascript">
@@ -34,6 +43,11 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 <a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+        <hr style="    border: 0;
+    height: 1px;
+{#    width: 60%;#}
+    background: #333;
+    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
 </article>
 
 {% endblock %}

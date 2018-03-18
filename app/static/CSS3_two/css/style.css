@@ -29,6 +29,28 @@ a:hover, a:active {
     background-color: whitesmoke;
 }
 
+article {
+    width: 60%;
+    margin: 0 auto;
+    /*background-color: whitesmoke;*/
+    display: block;
+    /*border: 2px solid lemonchiffon;*/
+    /*padding: 25px;*/
+    padding-left: 55px;
+    padding-right: 43px;
+    padding-top: 0.5em;
+    padding-bottom: 1.5em;
+}
+
+header {
+        margin-bottom: 0.5em;
+    padding-bottom: 0.5em;
+    background: none;
+        /*color: rgb(150, 150, 150);*/
+        font-family: "Lato", "Verdana", sans-serif;
+
+}
+
 .nav__left {
     float: left;
     padding-top: 25px;
@@ -91,4 +113,36 @@ footer#site-footer {
 
 .link-instagram {
 
+}
+
+div.pagination {
+    text-align: center;
+    font-size: .95em;
+    font-weight: bold;
+    position: relative;
+    /*background: url("../images/title_bg.png") top left repeat-x;*/
+    padding-top: 1.5em;
+    padding-bottom: 1.5em;
+
+    width: 60%;
+    margin: 0 auto;
+}
+
+div.pagination a {
+    text-decoration: none;
+    color: #aaa;
+}
+
+div.pagination a:hover {
+    color: rgb(1, 129, 235);
+}
+
+div.pagination a.prev {
+    position: absolute;
+    right: 0;
+}
+
+div.pagination a.next {
+    position: absolute;
+    left: 0;
 }
