@@ -57,13 +57,8 @@ def resume():
 @main.route('/admin', methods=['GET', 'POST'])
 @login_required
 def admin():
-    page = request.args.get('page', 1, type=int)
-    query = Post.query
-    pagination = query.order_by(Post.created.desc()).paginate(
-        page, per_page=current_app.config['BLOG_POSTS_PER_PAGE'],
-        error_out=False)
-    posts = pagination.items
-    return render_template('admin.html', posts=posts, pagination=pagination)
+    posts = Post.query.order_by(Post.created.desc()).all()
+    return render_template('admin.html', posts=posts)
 
 
 @main.route('/admin/postlist', methods=['GET', 'POST'])

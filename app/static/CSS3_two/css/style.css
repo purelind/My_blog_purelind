@@ -24,13 +24,13 @@ a:hover, a:active {
 
 
 .nav {
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
     background-color: whitesmoke;
 }
 
 article {
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
     /*background-color: whitesmoke;*/
     display: block;
@@ -64,7 +64,7 @@ header {
 }
 
 .intro {
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
     padding-top: 40px;
 }
@@ -81,7 +81,7 @@ header {
 }
 
 footer {
-    width: 60%;
+    width: 40%;
     display: block;
     /*max-width: 1200px;*/
     overflow: hidden;
@@ -124,7 +124,7 @@ div.pagination {
     padding-top: 1.5em;
     padding-bottom: 1.5em;
 
-    width: 60%;
+    width: 40%;
     margin: 0 auto;
 }
 

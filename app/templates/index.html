@@ -2,23 +2,21 @@
 
 {% block content %}
     {% for post in posts %}
-        <hr style="    border: 0;
+        <hr style="border: 0;
     height: 1px;
-    width: 60%;
+    width: 40%;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
 
-        <div style="margin: auto; width: 60%; border: 3px solid white; padding: 2px">
-
+        <div style="margin: auto; width: 40%; border: 3px solid white; padding: 2px">
             <p>
                 <a href="/post/{{ post.id }}">
-                    {{ post.title }}
+                        {{ post.title }}
                 </a>
                 <span
                     style="float: right; position: relative; font-weight: lighter;">{{ momentjs(post.created).format("LL") }}
                 </span>
             </p>
-
         </div>
 
     {% endfor %}
@@ -26,7 +24,7 @@
 
         <hr style="    border: 0;
     height: 1px;
-    width: 60%;
+    width: 40%;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
 
@@ -42,7 +40,7 @@
 
             <hr style="    border: 0;
     height: 1px;
-    width: 60%;
+    width: 40%;
     background: #333;
     background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
 {% endblock %}

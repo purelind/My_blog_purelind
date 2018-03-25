@@ -1,52 +1,46 @@
 {% extends "base.html" %}
-{% import "_macros.html" as macros %}
 
-{% block title %}Purelind's Admin{% endblock %}
+{% block title %}Dashboard{% endblock %}
 
 {% block navheader %}
-<header>
-    <div id="logo">
-        <div id="logo_text">
-            <!-- class="logo_colour", allows you to change the colour of the text -->
-            <h1><a href="admin">Blog's<span class="logo_colour">Admin</span></a></h1>
-            <h2>admin panel</h2>
+    <header style="width: 60%; margin: 0 auto; padding-bottom: 100px">
+        <div class="nav__left" style="">
+            <div id="logo_text">
+                <!-- class="logo_colour", allows you to change the colour of the text -->
+                <a href="/admin">DASHBOARD</a>
+            </div>
         </div>
-    </div>
-    <nav>
-        <div id="menu_container">
-            <ul class="sf-menu" id="nav" style="float: left">
-                <li><a href="/admin">Home</a></li>
-                <li><a href="/create">Create</a></li>
-                <!--<li><a href="/admin/postlist">PostList</a></li>-->
-                <li><a href="/auth/logout">Logout</a></li>
-            </ul>
-
-
+        <div class="nav__right" style="">
+            <div id="menu_container">
+                <a target="_blank" href="/create" class="link-create">Create</a>
+                <a target="_blank" href="/admin/logout" class="link-logout">Logout</a>
+            </div>
         </div>
-    </nav>
-</header>
+    </header>
 {% endblock %}
 
 {% block content %}
-{% for post in posts %}
-<article>
-    <a class="title-link" href="/post/{{ post.id }}"><h3>{{ post.title }}</h3></a>
-    <p class="blog-post-meta">{{ momentjs(post.created).format("LL") }}</p>
-    <a href="/edit/{{ post.id }}"><p href="/edit/{{ post.id }}">Edit</p></a>
-</article>
-{% endfor %}
+    <article>
+        {% for post in posts %}
+            <hr style="    border: 0;
+                    height: 1px;
+                    {#    width: 60%;#}
+                    background: #333;
+                    background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
+            <div style="margin: auto; border: 3px solid white; padding: 2px">
+                <a  href="/post/{{ post.id }}"><h3>{{ post.title }}</h3></a>
+                <p >{{ momentjs(post.created).format("LL") }}</p>
+                <a  href="/edit/{{ post.id }}"><h5 href="/edit/{{ post.id }}">Edit</h5></a>
+            </div>
+        {% endfor %}
+        <hr style="    border: 0;
+                height: 1px;
+                {#    width: 60%;#}
+                background: #333;
+                background-image: linear-gradient(to right, #ccc, #ccc, #ccc);">
+    </article>
 
 
-<div class="pagination">
-    {% if pagination.has_prev %}
-    <a class="next" href="{{ url_for('main.admin', page = pagination.page-1) }}">← Newer</a>
-    {% endif %}
-    <a href="/archives">Blog Archives</a>
-    {% if pagination.has_next %}
-    <a class="prev" href="{{ url_for('main.admin', page = pagination.page+1) }}">Older →</a>
-    {% endif %}
-</div>
-{% endblock %}
 
-{% block sidebar %}
+
 {% endblock %}
